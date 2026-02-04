@@ -1,0 +1,84 @@
+@use './functions' as *;
+@use './variables' as *;
+@use './colors' as *;
+@use './mixins' as *;
+
+
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+// Hero section mobile styles
+@media (max-width: $mobile) {
+  .hero {
+    &__wrapper {
+      &--content {
+        flex-direction: column;
+        padding: px_to_rem(20px) px_to_rem(20px);
+        align-items: flex-start;
+        justify-content: flex-end;
+      }
+
+      &--content-text {
+        max-width: 100%;
+
+        &-up {
+          &-heading {
+            font-size: px_to_rem(24px);
+          }
+        }
+
+        &-down {
+          min-width: px_to_rem(200px);
+        }
+      }
+    }
+  }
+
+  .hero__icon {
+    left: auto !important;
+    right: px_to_rem(20px) !important;
+    bottom: px_to_rem(20px);
+  }
+
+  .hero-down-para {
+    font-size: px_to_rem(12px);
+  }
+
+  .arrow-svg {
+    width: px_to_rem(24px);
+    height: px_to_rem(24px);
+  }
+}
+
+// Navigation mobile styles
+@media (max-width: $mobile) {
+  .header {
+    &__nav {
+      padding: px_to_rem(15px) px_to_rem(20px);
+
+      &--logo {
+        height: px_to_rem(30px);
+        width: px_to_rem(155px);
+      }
+
+      &--hamburger {
+        top: px_to_rem(15px);
+        right: px_to_rem(20px);
+
+        &1,
+        &2 {
+          width: px_to_rem(30px);
+          height: px_to_rem(2px);
+        }
+
+        &2 {
+          width: px_to_rem(22px);
+        }
+      }
+    }
+  }
+}

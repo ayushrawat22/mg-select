@@ -1,0 +1,125 @@
+@use '../abstracts/functions' as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/media-queries' as *;
+
+.hero {
+  
+  &__wrapper {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    &--video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &--content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: px_to_rem(30px);
+      padding: px_to_rem(40px) px_to_rem(80px);
+
+      &-text {
+        color: $white;
+        max-width: px_to_rem(600px);
+        margin-bottom: px_to_rem(20px);
+
+        &-up {
+          &-heading {
+            font-size: px_to_rem(32px);
+            font-weight: 500;
+            font-family: $font-family-primary;
+            margin: 0 0 px_to_rem(18px) 0;
+            line-height: 1.2;
+          }
+        }
+
+        &-down {
+          display: inline-flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: px_to_rem(10px);
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          padding: px_to_rem(12px) px_to_rem(20px);
+          min-width: px_to_rem(280px);
+          cursor: pointer;
+          transition: background-color 0.25s ease;
+          &:hover {
+            background-color: $light-200;
+          }
+        }
+      }
+
+      &-mute {
+        position: relative;
+        width: px_to_rem(30px);
+        height: px_to_rem(30px);
+        cursor: pointer;
+        flex-shrink: 0;
+        margin-bottom: px_to_rem(20px);
+      }
+    }
+  }
+
+  &__icon {
+    position: fixed;
+    bottom: px_to_rem(40px);
+    left: px_to_rem(40px);
+    width: px_to_rem(36px);
+    height: px_to_rem(36px);
+    display: block;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(45deg) brightness(102%) contrast(101%) drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
+    z-index: 10;
+
+    &.mute {
+      opacity: 1;
+      
+
+      &.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    &.unmute {
+      opacity: 0;
+      pointer-events: none;
+     
+
+      &.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+}
+
+.hero-down-para{
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: px_to_rem(14px);
+  letter-spacing: 0.1em;
+}
+
+.arrow-svg {
+  width: px_to_rem(30px);
+  height: px_to_rem(30px);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(45deg) brightness(102%) contrast(101%);
+}

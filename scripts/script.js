@@ -62,7 +62,7 @@ if (carShowcase) {
         setTimeout(() => {
             carousel.next();
             autoSlide();
-        }, 5000);
+        }, 7000);
     };
     autoSlide();
 
@@ -126,3 +126,4 @@ else
 {
     console.log('Toggle element NOT found!');  //it was not working earlier so i used this to debug
 }
+

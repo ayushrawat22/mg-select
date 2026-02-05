@@ -102,6 +102,11 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+
+    <div class="carousel-indicators showcase__indicators">
+      <button data-bs-target="#carShowcase" data-bs-slide-to="0" class="active"></button>
+      <button data-bs-target="#carShowcase" data-bs-slide-to="1"></button>
+    </div>
   </div>
 
   <!-- Car info labels -->
@@ -128,6 +133,8 @@
       <svg class="showcase__toggle--icon night" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
       </svg>
+
+      <!-- created svg from online tools since i was not able to find the exact ones used in actual website -->
       <svg class="showcase__toggle--icon day" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
         <circle cx="12" cy="12" r="5"/>
         <line x1="12" y1="1" x2="12" y2="3"/>

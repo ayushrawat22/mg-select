@@ -369,6 +369,33 @@ a:hover {
 .showcase__info--btn.download {
   padding: 0.875rem 0;
 }
+.showcase__indicators {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+.showcase__indicators button {
+  width: 19.5rem !important;
+  height: 0.25rem !important;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: 0;
+  opacity: 1;
+  transition: background-color 0.3s ease;
+}
+.showcase__indicators button.active {
+  background-color: #ffffff;
+}
+.showcase__indicators button:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
 .showcase__toggle {
   position: relative;
   cursor: pointer;

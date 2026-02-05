@@ -58,7 +58,7 @@
       .carousel-control-next-icon {
         width: px_to_rem(60px);
         height: px_to_rem(60px);
-        background-color: rgba(255, 255, 255, 0.15);
+        background-color: $grey-200;
         border-radius: 50%;
         background-size: 40%;
       }
@@ -142,6 +142,37 @@
 
       &.download {
         padding: px_to_rem(14px) 0;
+      }
+    }
+  }
+
+  &__indicators {
+    position: absolute;
+    bottom: px_to_rem(40px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: px_to_rem(8px);
+    margin: 0;
+    padding: 0;
+
+    button {
+      width: px_to_rem(312px) !important;
+      height: px_to_rem(4px) !important;
+      background-color: rgba($white, 0.4);
+      border: none;
+      border-radius: 0;
+      opacity: 1;
+      transition: background-color 0.3s ease;
+
+      &.active {
+        background-color: $white;
+      }
+
+      &:hover {
+        background-color: rgba($white, 0.7);
       }
     }
   }

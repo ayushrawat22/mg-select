@@ -6,7 +6,14 @@
 
 html,
 body {
+  //found this on stackoverflow to hide scrollbar but still allow scrolling
   overflow-x: hidden;
+  scrollbar-width: none; //Firefox
+  -ms-overflow-style: none; //IE and Edge 
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Opera 
+  }
 }
 
 ul,

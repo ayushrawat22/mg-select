@@ -4,17 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MG Select</title>
-
-  <!__ Fonts __>
+<!-- 
+  <!__ Fonts __> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!__ Preload woff2 fonts used across the site __> 
-   <!__ found that these fonts are used in the actual website __>
+  <!-- <!__ Preload woff2 fonts used across the site __> 
+   <!__ found that these fonts are used in the actual website __> -->
   <link rel="preload" href="https://www.mgselect.co.in/etc.clientlibs/mg-select/clientlibs/clientlib-site/resources/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://www.mgselect.co.in/etc.clientlibs/mg-select/clientlibs/clientlib-site/resources/fonts/roboto.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://www.mgselect.co.in/etc.clientlibs/mg-select/clientlibs/clientlib-site/resources/fonts/sequel.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
   <link rel="stylesheet" href="./dist/css/main.css">
 </head>
@@ -67,12 +69,81 @@
   </div>
 </main>
 
-<section class="showcase">
-  <img class="showcase__bg night" src="./media/night-bg.webp" alt="night background">
-  <img class="showcase__bg day" src="./media/day-bg.webp" alt="day background">
+<!-- car showcase -->
 
+<section class="showcase">
+  <div class="showcase__bg">
+    <img class="showcase__bg--image night" src="./media/night-bg.webp" alt="night background">
+    <img class="showcase__bg--image day" src="./media/day-bg.webp" alt="day background">
+  </div>
+<!-- used bootstrap for creating carousel -->
+  <div id="carShowcase" class="carousel slide showcase__carousel" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-car-name="MG Cyberster" data-car-tagline="Driven by vision, not convention.">
+        <div class="showcase__car cyberster">
+          <img class="showcase__car--image day" src="./media/cyberster-day-full.webp" alt="MG Cyberster Car Image day">
+          <img class="showcase__car--image night" src="./media/cyberter-night-full.webp" alt="MG Cyberster Car Image night">
+        </div>
+      </div>
+
+      <div class="carousel-item" data-car-name="MG M9" data-car-tagline="Luxury, Sculpted.">
+        <div class="showcase__car m9">
+          <img class="showcase__car--image day" src="./media/m9-day-full.webp" alt="MG m9 day image">
+          <img class="showcase__car--image night" src="./media/m9-night-full.webp" alt="MG m9 night image">
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carShowcase" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carShowcase" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Car info labels -->
+  <div class="showcase__info">
+    <h2 class="showcase__info--title">MG Cyberster</h2>
+    <p class="showcase__info--tagline">Driven by vision, not convention.</p>
+    <div class="showcase__info--actions">
+      <a href="#" class="showcase__info--btn explore">
+        <span>EXPLORE NOW</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </a>
+      <a href="#" class="showcase__info--btn download">
+        <span>DOWNLOAD BROCHURE</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Day and night toggle -->
+    <div class="showcase__toggle">
+      <svg class="showcase__toggle--icon night" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <svg class="showcase__toggle--icon day" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </div>
+  </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script src="./scripts/script.js"></script>
 </body>
 </html>

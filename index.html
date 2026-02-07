@@ -17,6 +17,9 @@
   <link rel="preload" href="https://www.mgselect.co.in/etc.clientlibs/mg-select/clientlibs/clientlib-site/resources/fonts/sequel.woff2" as="font" type="font/woff2" crossorigin>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  
+  <!-- fullPage.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css">
 
   <link rel="stylesheet" href="./dist/css/main.css">
 </head>
@@ -38,8 +41,8 @@
 </header>
 
 
-<main>  
-  <div class="hero">
+<main id="fullpage">
+  <div class="section hero">
     <div class="hero__wrapper">
       <div class="hero__wrapper--video">
         <video autoplay muted loop>
@@ -71,7 +74,7 @@
 
 <!-- car showcase -->
 
-<section class="showcase">
+<section class="section showcase">
   <div class="showcase__bg">
     <img class="showcase__bg--image night" src="./media/night-bg.webp" alt="night background">
     <img class="showcase__bg--image day" src="./media/day-bg.webp" alt="day background">
@@ -150,7 +153,64 @@
   </div>
 </section>
 
+<section class="section welcome">
+  <div class="welcome__container">
+    <div class="welcome__container--top">
+    <h2 class="welcome__container--top-heading">Welcome to</h2>
+    <img class="welcome__container--top-logo" src="./media/mg-select-final-logo-dark.webp" alt="mg select logo dark">
+    </div>
+
+    <div class="welcome__container--mid__wrapper">
+      <p class="welcome__container--mid__wrapper-tagline">
+        A New-Era of Luxury
+      </p>
+      <p class="welcome__container--mid__wrapper-paragraph">A New language of luxury is unfolding. A luxury that is no longer about possessions, but about creating memorable experiences. Where sustainability and innovation, intertwine in perfect harmony. Welcome to the world of new-age luxury. Introducing, MG Select.</p>
+    </div>
+
+    <div class="welcome__container--carousel">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active 16-9">
+      <img class="d-block w-100" src="./media/1_16-9.webp" alt="First slide">
+    </div>
+    <div class="carousel-item aspect-ratio_4-3">
+      <img class="d-block w-100" src="./media/2_4-3.webp" alt="Second slide">
+    </div>
+    <div class="carousel-item aspect-ratio_16-9">
+      <img class="d-block w-100" src="./media/3_16-9.webp" alt="Third slide">
+    </div>
+    <div class="carousel-item aspect-ratio_4-3">
+      <img class="d-block w-100" src="./media/4_4-3.webp" alt="fourth slide">
+    </div>
+    <div class="carousel-item aspect-ratio_16-9">
+      <img class="d-block w-100" src="./media/1_16-9.webp" alt="fifth slide">
+    </div>
+    <div class="carousel-item aspect-ratio_4-3">
+      <img class="d-block w-100" src="./media/6_4-3.webp" alt="Sixth slide">
+    </div>
+    <div class="carousel-item aspect-ratio_16-9">
+      <img class="d-block w-100" src="./media/7_16-9.webp" alt="Seventh slide">
+    </div>
+    <div class="carousel-item aspect-ratio_4-3">
+      <img class="d-block w-100" src="./media/8_4-3.webp" alt="Eighth slide">
+    </div>
+    <div class="carousel-item aspect-ratio_16-9">
+      <img class="d-block w-100" src="./media/9_16-9.webp" alt="Ninth slide">
+    </div>
+    <div class="carousel-item aspect-ratio_4-3">
+      <img class="d-block w-100" src="./media/10_4-3.webp" alt="Tenth slide">
+    </div>
+  </div>
+</div>
+    </div>
+
+
+  </div>
+</section>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
 <script src="./scripts/script.js"></script>
 </body>
 </html>
+

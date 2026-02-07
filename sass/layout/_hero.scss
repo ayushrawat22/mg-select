@@ -5,7 +5,7 @@
 @use '../abstracts/media-queries' as *;
 
 .hero {
-  
+
   &__wrapper {
     position: relative;
     height: 100vh;
@@ -60,6 +60,7 @@
           min-width: px_to_rem(280px);
           cursor: pointer;
           transition: background-color 0.25s ease;
+
           &:hover {
             background-color: $light-200;
           }
@@ -90,7 +91,7 @@
 
     &.mute {
       opacity: 1;
-      
+
 
       &.hidden {
         opacity: 0;
@@ -101,7 +102,7 @@
     &.unmute {
       opacity: 0;
       pointer-events: none;
-     
+
 
       &.visible {
         opacity: 1;
@@ -111,7 +112,7 @@
   }
 }
 
-.hero-down-para{
+.hero-down-para {
   margin: 0;
   font-family: $font-family-primary;
   font-size: px_to_rem(14px);

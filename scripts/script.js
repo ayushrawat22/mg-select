@@ -45,7 +45,7 @@ const updateCarInfo = () => {
     if (activeItem) {
         const carName = activeItem.dataset.carName;
         const carTagline = activeItem.dataset.carTagline;
-        
+
         if (showcaseTitle && carName) {
             showcaseTitle.textContent = carName;
         }
@@ -94,7 +94,7 @@ if (showcaseToggle) {
         e.stopPropagation();
         console.log('Toggle clicked!');
         isDayMode = !isDayMode;
-        
+
         if (isDayMode) {
             // Switch to day mode
             dayIcon.style.opacity = '1';
@@ -121,9 +121,16 @@ if (showcaseToggle) {
             carDayImages.forEach(img => img.style.opacity = '0');
         }
     });
-} 
-else 
-{
+}
+else {
     console.log('Toggle element NOT found!');  //it was not working earlier so i used this to debug
 }
+
+//fix
+const welcomeTagline = document.querySelector(".welcome__container--mid__wrapper-tagline");
+const welcomeParagraph = document.querySelector(".welcome__container--mid__wrapper-paragraph");
+welcomeTagline.addEventListener('scroll', () => {
+    welcomeTagline.style.opacity = '0';
+    welcomeParagraph.style.opacity = '1';
+});
 

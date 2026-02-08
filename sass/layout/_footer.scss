@@ -3,3 +3,178 @@
 @use '../abstracts/colors' as *;
 @use '../abstracts/mixins' as *;
 @use '../abstracts/media-queries' as *;
+
+.footer {
+    background-color: $dark-100;
+    min-height: 80vh;
+    padding: px_to_rem(60px) px_to_rem(80px) px_to_rem(30px);
+    padding-bottom: px_to_rem(100px);
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: px_to_rem(40px);
+
+        &--logo {
+            width: px_to_rem(150px);
+
+            .footer__top--logo-img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        &--newsletter {
+            width: px_to_rem(400px);
+
+            &-heading {
+                font-family: $font-family-primary;
+                font-size: px_to_rem(20px);
+                margin-bottom: px_to_rem(20px);
+                color: $grey-100;
+            }
+
+            &-form {
+                display: flex;
+                gap: px_to_rem(10px);
+                margin-bottom: px_to_rem(15px);
+            }
+
+            &-input {
+                flex: 1;
+                background-color: rgba($white, 0.05);
+                border: none;
+                padding: px_to_rem(12px) px_to_rem(15px);
+                color: $white;
+                font-family: $font-family-primary;
+                font-size: px_to_rem(14px);
+
+                &::placeholder {
+                    color: $grey-200;
+                }
+
+                &:focus {
+                    outline: 1px solid $grey-100;
+                }
+            }
+
+            &-btn {
+                background: transparent;
+                border: 1px solid $white;
+                color: $white;
+                padding: px_to_rem(10px) px_to_rem(20px);
+                cursor: pointer;
+                font-family: $font-family-primary;
+                font-size: px_to_rem(12px);
+                letter-spacing: 0.1em;
+                display: flex;
+                align-items: center;
+                gap: px_to_rem(5px);
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: $white;
+                    color: $black;
+                }
+            }
+
+            &-privacy {
+                display: flex;
+                align-items: center;
+                gap: px_to_rem(10px);
+                font-size: px_to_rem(12px);
+                color: $grey-100;
+
+                .footer__top--newsletter-link {
+                    color: $grey-100;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &__links {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: px_to_rem(20px);
+        margin-bottom: auto;
+
+        &--heading {
+            font-family: $font-family-primary;
+            font-size: px_to_rem(18px);
+            margin-bottom: px_to_rem(20px);
+            color: $grey-100;
+            font-weight: 400;
+        }
+
+        &--list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            .footer__links--item {
+                margin-bottom: px_to_rem(15px);
+
+                .footer__links--link {
+                    color: $grey-100;
+                    text-decoration: none;
+                    font-family: $font-family-primary;
+                    font-size: px_to_rem(14px);
+                    transition: color 0.3s ease;
+                    text-transform: uppercase;
+
+                    &:hover {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: px_to_rem(20px);
+        border-top: 1px solid rgba($white, 0.1);
+        font-family: $font-family-primary;
+        font-size: px_to_rem(12px);
+        color: $grey-100;
+
+        &--left {
+            display: flex;
+            gap: px_to_rem(20px);
+
+            .footer__bottom--link {
+                color: $grey-100;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &--right {
+            display: flex;
+            gap: px_to_rem(15px);
+
+            .footer__bottom--social-icon {
+                width: px_to_rem(20px);
+                height: px_to_rem(20px);
+                filter: invert(1);
+                opacity: 0.7;
+                transition: opacity 0.3s ease;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

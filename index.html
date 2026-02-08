@@ -21,6 +21,8 @@
   <!-- fullPage.js CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css">
 
+  <!-- swiper js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="./dist/css/main.css">
 </head>
 <body>
@@ -153,7 +155,7 @@
   </div>
 </section>
 
-<section class="welcome">
+<section class="welcome" id="hide-logo">
   <div class="welcome__container">
     <div class="welcome__container--top">
     <h2 class="welcome__container--top-heading">Welcome to</h2>
@@ -232,6 +234,66 @@
 </div>
 </section>
 
+<section class="history">
+  <div class="history__heading">
+    <h4 class="history__heading--main">OUR HERITAGE</h4>
+  </div>
+
+  <div class="history__wrapper">
+    <div class="history__wrapper--heading">
+      <h2 class="history__wrapper--heading-main">
+        A heritage written in motion.
+      </h2>
+    </div>
+    <div class="history__wrapper--content">
+      <div class="swiper history-swiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <span class="history__year">1924</span>
+            <img src="./media/1924.webp" alt="" class="history__image">
+            <p class="history__title">ROYAL CONNECTIONS</p>
+          </div>
+
+          <div class="swiper-slide">
+            <span class="history__year">1930</span>
+            <img src="./media/1930.webp" alt="" class="history__image">
+            <p class="history__title">SMALL CAR, BIG POWER</p>
+          </div>
+
+          <div class="swiper-slide history__slide--featured">
+            <span class="history__year">1945</span>
+            <img src="./media/1945.webp" alt="" class="history__image">
+            <p class="history__title">BORN TO RALLY</p>
+          </div>
+
+          <div class="swiper-slide">
+            <span class="history__year">1956</span>
+            <img src="./media/1956.webp" alt="" class="history__image">
+            <p class="history__title">THE REBIRTH OF COOL</p>
+          </div>
+          <div class="swiper-slide">
+            <span class="history__year">1957</span>
+            <img src="./media/1957.webp" alt="" class="history__image">
+            <p class="history__title">THE REBIRTH OF COOL</p>
+          </div>
+          <div class="swiper-slide">
+            <span class="history__year">1959</span>
+            <img src="./media/1959.webp" alt="" class="history__image">
+            <p class="history__title">THE REBIRTH OF COOL</p>
+          </div>
+          <div class="swiper-slide">
+            <span class="history__year">1962</span>
+            <img src="./media/1962.webp" alt="" class="history__image">
+            <p class="history__title">THE REBIRTH OF COOL</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
 <script src="./scripts/script.js"></script>

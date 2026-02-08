@@ -6,8 +6,7 @@
 
 .welcome {
   background-color: $white;
-  min-height: 100vh;
-  // padding: px_to_rem(80px) 0;
+  height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -147,6 +146,11 @@
   }
 }
 
+body.third-section-active {
+  .header__nav {
+    display: none;
+  }
+}
 
 @keyframes scrollCarousel {
   0% {

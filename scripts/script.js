@@ -4,6 +4,20 @@ const unmute = document.querySelector('.hero__icon.unmute');
 const video = document.querySelector('.hero__wrapper--video video');
 const heroSection = document.querySelector('.hero');
 
+document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper('.swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        centeredSlides: true,
+        bgImage: true,
+        // loop: true, // Loop can be tricky with centered slides if not enough slides, keeping it simple first
+        breakpoints: {
+            768: {
+                spaceBetween: 50,
+            }
+        }
+    });
+});
 //didnt noticed this earlier so eventually to fix that i did this
 window.addEventListener('scroll', () => {
     const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
@@ -134,3 +148,23 @@ welcomeTagline.addEventListener('scroll', () => {
     welcomeParagraph.style.opacity = '1';
 });
 
+const targetSection = document.getElementById("hide-logo"); //found this trick online
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                document.body.classList.add("third-section-active");
+                console.log("Entered 3rd section");
+            } else {
+                document.body.classList.remove("third-section-active");
+                console.log("Left 3rd section");
+            }
+        });
+    },
+    {
+        threshold: 0.5
+    }
+);
+
+observer.observe(targetSection);

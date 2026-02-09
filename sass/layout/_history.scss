@@ -5,6 +5,7 @@
 @use '../abstracts/media-queries' as *;
 
 .history {
+    scroll-snap-align: start;
     background-color: $white;
     padding: px_to_rem(80px) 0;
     overflow: hidden;

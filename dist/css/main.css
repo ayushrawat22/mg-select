@@ -63,6 +63,14 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
 }
+html,
+body {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+}
 
 ul,
 ol {
@@ -75,6 +83,10 @@ a {
 }
 a:hover {
   text-decoration: none;
+}
+
+footer {
+  scroll-snap-align: end;
 }
 
 .footer {
@@ -289,6 +301,9 @@ a:hover {
   width: 1.875rem;
 }
 
+.hero {
+  scroll-snap-align: start;
+}
 .hero__wrapper {
   position: relative;
   height: 100vh;
@@ -391,6 +406,7 @@ a:hover {
 }
 
 .showcase {
+  scroll-snap-align: start;
   position: relative;
   width: 100%;
   height: 100vh;
@@ -565,6 +581,7 @@ a:hover {
 }
 
 .welcome {
+  scroll-snap-align: start;
   background-color: #ffffff;
   height: 100vh;
   overflow: hidden;
@@ -760,23 +777,46 @@ body.third-section-active .header__nav {
 }
 
 .experience {
+  scroll-snap-align: start;
   width: 100vw;
   height: 100vh;
   position: relative;
   overflow: hidden;
 }
-.experience .carousel,
-.experience .carousel-inner,
-.experience .carousel-item {
+.experience__backround {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.experience .carousel {
+  z-index: 10;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.experience .carousel-inner {
   width: 100%;
   height: 100%;
 }
+.experience .carousel-item {
+  height: 100%;
+}
 .experience .carousel-item img {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  display: block;
-  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: 80vh;
+  max-width: 90vw;
+  object-fit: contain;
+  border-radius: 12px;
 }
 .experience .carousel-control-prev,
 .experience .carousel-control-next {
@@ -785,6 +825,7 @@ body.third-section-active .header__nav {
 }
 
 .history {
+  scroll-snap-align: start;
   background-color: #ffffff;
   padding: 5rem 0;
   overflow: hidden;
@@ -895,3 +936,5 @@ body.third-section-active .header__nav {
 .swiper-slide-active .history__image {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
+
+/*# sourceMappingURL=main.css.map */

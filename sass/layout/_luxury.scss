@@ -5,6 +5,7 @@
 @use '../abstracts/media-queries' as *;
 
 .welcome {
+  scroll-snap-align: start;
   background-color: $white;
   height: 100vh;
   overflow: hidden;
@@ -112,12 +113,12 @@
       .carousel-item {
         margin-top: 60px !important;
         display: flex !important;
-        align-items: flex-end; 
+        align-items: flex-end;
         justify-content: center;
         flex: 0 0 auto;
         width: px_to_rem(274px);
         height: px_to_rem(248px);
-        overflow: visible; 
+        overflow: visible;
         opacity: 1 !important;
         visibility: visible !important;
         transform: none !important;
@@ -132,6 +133,7 @@
           justify-content: center;
           opacity: 1 !important;
         }
+
         img,
         .welcome__container--carousel-image {
           width: 100%;
@@ -156,6 +158,7 @@ body.third-section-active {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -205,4 +208,3 @@ body.third-section-active {
     }
   }
 }
-

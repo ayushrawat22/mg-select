@@ -5,6 +5,7 @@
 @use '../abstracts/media-queries' as *;
 
 .hero {
+  scroll-snap-align: start;
 
   &__wrapper {
     position: relative;

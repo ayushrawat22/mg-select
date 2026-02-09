@@ -4,6 +4,10 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/media-queries' as *;
 
+footer {
+    scroll-snap-align: end;
+}
+
 .footer {
     background-color: $dark-100;
     min-height: 80vh;

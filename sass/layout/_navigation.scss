@@ -14,17 +14,19 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: px_to_rem(20px) px_to_rem(40px);
+    transition: all 0.3s ease;
 
     &--logo {
       height: px_to_rem(40px);
       width: px_to_rem(206px);
       display: block;
       position: relative;
+      z-index: 1002;
 
       &-main {
         position: absolute;
@@ -51,28 +53,405 @@
       top: px_to_rem(20px);
       right: px_to_rem(40px);
       display: flex;
-      flex-direction: column;
-      gap: px_to_rem(6px);
-      cursor: pointer;
-      z-index: 101;
-      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 10001;
 
-      &1,
-      &2 {
+      &-btn {
+        background: transparent;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        gap: px_to_rem(8px);
+        align-items: flex-end;
+        justify-content: center;
+        cursor: pointer;
+        height: px_to_rem(40px);
         width: px_to_rem(40px);
-        height: px_to_rem(3px);
+        padding: px_to_rem(8px) 0;
+        position: relative;
+      }
+
+      &-stroke {
+        display: block;
+        height: px_to_rem(2px);
         background-color: $white;
-        border-radius: px_to_rem(2px);
-        transition: background-color 0.5s ease;
+        border: none;
+        border-radius: px_to_rem(1px);
+        transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+          width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+          background-color 0.3s ease,
+          top 0.3s ease,
+          left 0.3s ease;
 
         &.day-mode {
-          background-color: #000;
+          background-color: $black;
         }
       }
 
-      &2{
-        width: px_to_rem(30px);
+      &-top {
+        width: px_to_rem(32px);
       }
+
+      &-bottom {
+        width: px_to_rem(20px);
+      }
+
+      &-btn:hover &-bottom {
+        width: px_to_rem(32px);
+      }
+
+      &.active {
+        .header__nav--hamburger-stroke {
+          background-color: $black;
+          width: px_to_rem(32px);
+          position: absolute;
+          left: 50%;
+          top: 50%;
+        }
+
+        .header__nav--hamburger-top {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .header__nav--hamburger-bottom {
+          width: px_to_rem(32px);
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+.nav-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: px_to_rem(1376px);
+  max-width: calc(100% - #{px_to_rem(32px)});
+  margin: 0 auto;
+  padding: 0;
+  background-color: $white;
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 20px $shadow-medium;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: px_to_rem(20px) px_to_rem(56px);
+    border-bottom: 1px solid $grey-300;
+    position: relative;
+    min-height: px_to_rem(70px);
+    flex-shrink: 0;
+
+    &--logo {
+      width: px_to_rem(160px);
+
+      &-img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &--actions {
+      position: absolute;
+      right: px_to_rem(56px);
+      display: flex;
+      align-items: center;
+      gap: px_to_rem(30px);
+
+      .nav-modal__locator {
+        display: flex;
+        align-items: center;
+        gap: px_to_rem(8px);
+        text-decoration: none;
+        color: $black;
+        font-family: $font-family-secondary;
+        font-size: px_to_rem(10px);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+
+        &-icon {
+          width: 18px;
+          height: 18px;
+        }
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__content {
+    display: flex;
+    width: 100%;
+    height: px_to_rem(500px);
+    padding: px_to_rem(80px) px_to_rem(56px) px_to_rem(70px);
+    gap: px_to_rem(40px);
+    overflow: hidden;
+  }
+
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: px_to_rem(30px);
+    width: px_to_rem(250px);
+    flex-shrink: 0;
+  }
+
+  &__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: px_to_rem(30px);
+
+    &-item {
+      font-family: $font-family-secondary;
+      font-size: px_to_rem(14px);
+      color: $grey-400;
+      cursor: pointer;
+      position: relative;
+      padding-bottom: px_to_rem(5px);
+      transition: color 0.3s ease;
+      text-decoration: none;
+      white-space: nowrap;
+
+      &.active {
+        color: $black;
+        font-weight: 400;
+        text-decoration: underline;
+        text-underline-offset: 6px;
+        text-decoration-thickness: 1px;
+      }
+
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+
+  &__main {
+    flex: 1;
+    display: flex;
+    gap: px_to_rem(40px);
+    overflow: hidden;
+    padding-left: px_to_rem(40px);
+    border-left: 1px solid $grey-300;
+  }
+
+  &__car-list {
+    display: flex;
+    flex-direction: column;
+    gap: px_to_rem(30px);
+  }
+
+  &__car-item {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    opacity: 0.5;
+    position: relative;
+
+    &.active {
+      opacity: 1;
+
+      .nav-modal__car-name {
+        background: linear-gradient(90deg, $accent-pink, transparent);
+        display: inline-block;
+        padding: px_to_rem(8px) px_to_rem(12px);
+        margin-left: px_to_rem(-12px);
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .nav-modal__car-name {
+      font-family: $font-family-primary;
+      font-size: px_to_rem(20px);
+      font-weight: 700;
+      margin: 0 0 px_to_rem(8px);
+      color: $black;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-modal__car-price {
+      font-family: $font-family-secondary;
+      font-size: px_to_rem(13px);
+      color: $grey-500;
+      margin: 0;
+    }
+  }
+
+  &__car-details {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: px_to_rem(30px);
+  }
+
+  &__car-info {
+    max-width: px_to_rem(350px);
+  }
+
+  &__car-title-large {
+    font-family: $font-family-primary;
+    font-size: px_to_rem(36px);
+    font-weight: 300;
+    margin: 0 0 px_to_rem(15px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $black;
+  }
+
+  &__car-desc {
+    font-family: $font-family-secondary;
+    font-size: px_to_rem(14px);
+    color: $grey-600;
+    line-height: 1.6;
+    margin-bottom: px_to_rem(25px);
+  }
+
+  &__car-actions {
+    display: flex;
+    flex-direction: column;
+    gap: px_to_rem(18px);
+
+    .nav-modal__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid $black;
+      padding: px_to_rem(14px) px_to_rem(20px);
+      text-decoration: none;
+      color: $black;
+      font-family: $font-family-secondary;
+      font-size: px_to_rem(12px);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      width: fit-content;
+      min-width: px_to_rem(140px);
+      transition: all 0.3s ease;
+      gap: px_to_rem(15px);
+
+      &:hover {
+        background-color: $black;
+        color: $white;
+      }
+
+      &-icon {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    .nav-modal__btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: px_to_rem(8px);
+      text-decoration: none;
+      color: $black;
+      font-family: $font-family-secondary;
+      font-size: px_to_rem(11px);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &-icon {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+
+  &__car-image-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: px_to_rem(550px);
+  }
+
+  &__car-image {
+    max-width: 100%;
+    max-height: px_to_rem(300px);
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: $mobile) {
+  .nav-modal {
+    margin: px_to_rem(16px) px_to_rem(16px) 0;
+    width: calc(100% - #{px_to_rem(32px)});
+    max-height: 80vh;
+
+    &__content {
+      flex-direction: column;
+      padding: px_to_rem(15px) px_to_rem(20px);
+    }
+
+    &__sidebar {
+      width: 100%;
+    }
+
+    &__menu {
+      flex-direction: row;
+      gap: px_to_rem(20px);
+    }
+
+    &__main {
+      flex-direction: column;
+    }
+
+    &__car-list {
+      flex-direction: row;
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid $grey-300;
+      padding-right: 0;
+      padding-bottom: px_to_rem(15px);
+    }
+
+    &__car-details {
+      flex-direction: column;
+    }
+
+    &__car-image-wrapper {
+      max-width: 100%;
+      justify-content: center;
     }
   }
 }

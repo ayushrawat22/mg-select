@@ -162,7 +162,7 @@
     button {
       width: px_to_rem(312px) !important;
       height: px_to_rem(4px) !important;
-      background-color: rgba($white, 0.4);
+      background-color: $white-40;
       border: none;
       border-radius: 0;
       opacity: 1;
@@ -173,7 +173,7 @@
       }
 
       &:hover {
-        background-color: rgba($white, 0.7);
+        background-color: $white-70;
       }
     }
   }

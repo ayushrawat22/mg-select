@@ -34,11 +34,71 @@
     </section>
 
     <section class="header__nav--hamburger">
-      <div class="header__nav--hamburger1">
-      </div>
-      <div class="header__nav--hamburger2">
-      </div>
+      <button type="button" aria-label="Close-menu" class="header__nav--hamburger-btn">
+        <span class="header__nav--hamburger-stroke header__nav--hamburger-top"></span>
+        <span class="header__nav--hamburger-stroke header__nav--hamburger-bottom"></span>
+      </button>
     </section>
+
+    <div class="nav-modal">
+      <div class="nav-modal__header">
+          <div class="nav-modal__header--logo">
+              <img src="./media/mg-select-final-logo-dark.webp" alt="MG Select Logo" class="nav-modal__header--logo-img">
+          </div>
+          <div class="nav-modal__header--actions">
+              <a href="#" class="nav-modal__locator">
+                  <svg class="nav-modal__locator-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>SHOWROOM LOCATOR</span>
+              </a>
+          </div>
+      </div>
+
+      <div class="nav-modal__content">
+          <div class="nav-modal__sidebar">
+              <ul class="nav-modal__menu">
+                  <li class="nav-modal__menu-item active">Select Your Ride</li>
+                  <li class="nav-modal__menu-item">MG Services</li>
+              </ul>
+              <div class="nav-modal__car-list">
+                  <div class="nav-modal__car-item active">
+                      <h3 class="nav-modal__car-name">CYBERSTER</h3>
+                      <p class="nav-modal__car-price">Ex-showroom price: ₹ 74,99,000</p>
+                  </div>
+                  <div class="nav-modal__car-item">
+                      <h3 class="nav-modal__car-name">M9</h3>
+                      <p class="nav-modal__car-price">Ex-showroom price: ₹ 70,90,000</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="nav-modal__main">
+              <div class="nav-modal__car-details">
+                  <div class="nav-modal__car-info">
+                      <h2 class="nav-modal__car-title-large">CYBERSTER</h2>
+                      <p class="nav-modal__car-desc">Meet the boldest expressions of MG innovation.</p>
+                      
+                      <div class="nav-modal__car-actions">
+                          <a href="#" class="nav-modal__btn explore">
+                              EXPLORE 
+                              <svg class="nav-modal__btn-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                              </svg>
+                          </a>
+                          <a href="#" class="nav-modal__btn-link">E-BOOK <svg class="nav-modal__btn-link-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+                          <a href="#" class="nav-modal__btn-link">BOOK TEST DRIVE <svg class="nav-modal__btn-link-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+                          <a href="#" class="nav-modal__btn-link">REQUEST CALLBACK <svg class="nav-modal__btn-link-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+                      </div>
+                  </div>
+                  <div class="nav-modal__car-image-wrapper">
+                      <img src="./media/cybie-header.webp" alt="MG Cyberster" class="nav-modal__car-image">
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
   </nav>
 </header>
 
@@ -54,14 +114,9 @@
       </div>
 
       <div class="hero__wrapper--content">
-        <div class="hero__wrapper--content-mute">
-           <img src="./media/icons/mute.svg" alt="mute icon" class="hero__icon mute" >
-            <img src="./media/icons/unmute.svg" alt="unmute icon" class="hero__icon unmute" >
-        </div>
-
         <div class="hero__wrapper--content-text">
           <div class="hero__wrapper--content-text-up">
-          <h1 class="hero__wrapper--content-text-up-heading">All New MG Cyberster in Irises Cyan</h1>
+            <h1 class="hero__wrapper--content-text-up-heading">All New MG Cyberster in Irises Cyan</h1>
           </div>
           <div class="hero__wrapper--content-text-down">
             <p class="hero-down-para">KNOW MORE</p>
@@ -69,10 +124,10 @@
           </div>
         </div>
       </div>
-    </div>
 
-  </div>
-</main>
+      <img src="./media/icons/mute.svg" alt="mute icon" class="hero__icon mute">
+      <img src="./media/icons/unmute.svg" alt="unmute icon" class="hero__icon unmute">
+    </div>
 
 <!-- car showcase -->
 
@@ -215,13 +270,13 @@
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="./media/01-bengaluru-city-launch-1920-x-1080.webp" alt="First slide">
+      <img class="experience__carousel-img d-block w-100" src="./media/01-bengaluru-city-launch-1920-x-1080.webp" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="./media/pune-city-launch-1920-x-1080.webp" alt="Second slide">
+      <img class="experience__carousel-img d-block w-100" src="./media/pune-city-launch-1920-x-1080.webp" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="./media/chandigarh-city-launch-1920-x-1080.webp" alt="Third slide">
+      <img class="experience__carousel-img d-block w-100" src="./media/chandigarh-city-launch-1920-x-1080.webp" alt="Third slide">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -369,6 +424,8 @@
     </div>
   </div>
 </footer>
+
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>

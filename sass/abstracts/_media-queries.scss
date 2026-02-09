@@ -53,7 +53,6 @@
   }
 }
 
-// Navigation mobile styles
 @media (max-width: $mobile) {
   .header {
     &__nav {
@@ -68,14 +67,18 @@
         top: px_to_rem(15px);
         right: px_to_rem(20px);
 
-        &1,
-        &2 {
-          width: px_to_rem(30px);
-          height: px_to_rem(2px);
+        &-btn {
+          width: px_to_rem(28px);
+          height: px_to_rem(26px);
+          gap: px_to_rem(12px);
         }
 
-        &2 {
-          width: px_to_rem(22px);
+        &-top {
+          width: px_to_rem(28px);
+        }
+
+        &-bottom {
+          width: px_to_rem(18px);
         }
       }
     }

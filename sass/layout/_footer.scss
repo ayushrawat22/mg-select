@@ -51,7 +51,7 @@ footer {
 
             &-input {
                 flex: 1;
-                background-color: rgba($white, 0.05);
+                background-color: $white-05;
                 border: none;
                 padding: px_to_rem(12px) px_to_rem(15px);
                 color: $white;
@@ -145,7 +145,7 @@ footer {
         justify-content: space-between;
         align-items: center;
         padding-top: px_to_rem(20px);
-        border-top: 1px solid rgba($white, 0.1);
+        border-top: 1px solid $white-10;
         font-family: $font-family-primary;
         font-size: px_to_rem(12px);
         color: $grey-100;

@@ -72,13 +72,13 @@
   .carousel-item {
     height: 100%;
 
-    img {
+    .experience__carousel-img {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: auto;
-      height: 80vh; // Adjust as needed
+      height: 80vh;
       max-width: 90vw;
       object-fit: contain;
       border-radius: 12px;

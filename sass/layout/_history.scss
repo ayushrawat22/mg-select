@@ -46,7 +46,7 @@
             margin-bottom: px_to_rem(60px);
 
             &-main {
-                font-family: $font-family-primary;
+                font-family: $font-family-secondary;
                 font-size: px_to_rem(48px);
                 color: $dark-100;
             }
@@ -84,7 +84,7 @@
         height: auto;
         object-fit: cover;
         display: block;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 30px $shadow-light;
     }
 
     .history__title {
@@ -99,7 +99,7 @@
         letter-spacing: 0.1em;
         text-transform: uppercase;
         z-index: 2;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 2px 4px $shadow-dark;
 
         &::before {
             content: '+ ';
@@ -126,6 +126,6 @@
     }
 
     .history__image {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 10px 30px $shadow-medium;
     }
 }

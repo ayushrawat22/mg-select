@@ -5,13 +5,12 @@
 @use '../abstracts/media-queries' as *;
 
 .history {
-    scroll-snap-align: start;
+    @include scroll-snap-section;
     background-color: $white;
     padding: px_to_rem(80px) 0;
     overflow: hidden;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     justify-content: center;
 
     &__heading {
@@ -21,8 +20,7 @@
         &--main {
             font-family: $font-family-primary;
             font-size: px_to_rem(14px);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            @include uppercase-text;
             color: $dark-100;
             position: relative;
             display: inline-block;
@@ -46,8 +44,8 @@
             margin-bottom: px_to_rem(60px);
 
             &-main {
-                font-family: $font-family-secondary;
-                font-size: px_to_rem(48px);
+                font-family: $font-family-display;
+                font-size: px_to_rem(30px);
                 color: $dark-100;
             }
         }
@@ -72,10 +70,9 @@
 .swiper-slide {
     width: px_to_rem(220px);
     height: auto;
-    transition: all 0.4s ease;
+    @include transition;
     margin-right: px_to_rem(20px);
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     justify-content: flex-end;
     position: relative;
 
@@ -96,8 +93,7 @@
         font-family: $font-family-primary;
         font-size: px_to_rem(10px);
         font-weight: 500;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
+        @include uppercase-text;
         z-index: 2;
         text-shadow: 0 2px 4px $shadow-dark;
 

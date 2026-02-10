@@ -14,13 +14,11 @@ footer {
     padding: px_to_rem(60px) px_to_rem(80px) px_to_rem(30px);
     padding-bottom: px_to_rem(100px);
     color: $white;
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     justify-content: space-between;
 
     &__top {
-        display: flex;
-        justify-content: space-between;
+        @include flex-between;
         align-items: flex-start;
         margin-bottom: px_to_rem(40px);
 
@@ -44,8 +42,7 @@ footer {
             }
 
             &-form {
-                display: flex;
-                gap: px_to_rem(10px);
+                @include flex-row(px_to_rem(10px));
                 margin-bottom: px_to_rem(15px);
             }
 
@@ -68,18 +65,16 @@ footer {
             }
 
             &-btn {
-                background: transparent;
+                @include button-reset;
                 border: 1px solid $white;
                 color: $white;
                 padding: px_to_rem(10px) px_to_rem(20px);
-                cursor: pointer;
                 font-family: $font-family-primary;
                 font-size: px_to_rem(12px);
                 letter-spacing: 0.1em;
-                display: flex;
+                @include flex-row(px_to_rem(5px));
                 align-items: center;
-                gap: px_to_rem(5px);
-                transition: all 0.3s ease;
+                @include transition;
 
                 &:hover {
                     background-color: $white;
@@ -88,9 +83,8 @@ footer {
             }
 
             &-privacy {
-                display: flex;
+                @include flex-row(px_to_rem(10px));
                 align-items: center;
-                gap: px_to_rem(10px);
                 font-size: px_to_rem(12px);
                 color: $grey-100;
 
@@ -129,8 +123,8 @@ footer {
                     text-decoration: none;
                     font-family: $font-family-primary;
                     font-size: px_to_rem(14px);
-                    transition: color 0.3s ease;
-                    text-transform: uppercase;
+                    @include transition(color);
+                    @include uppercase-text;
 
                     &:hover {
                         color: $white;
@@ -141,9 +135,7 @@ footer {
     }
 
     &__bottom {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex-between;
         padding-top: px_to_rem(20px);
         border-top: 1px solid $white-10;
         font-family: $font-family-primary;
@@ -151,8 +143,7 @@ footer {
         color: $grey-100;
 
         &--left {
-            display: flex;
-            gap: px_to_rem(20px);
+            @include flex-row(px_to_rem(20px));
 
             .footer__bottom--link {
                 color: $grey-100;
@@ -165,15 +156,13 @@ footer {
         }
 
         &--right {
-            display: flex;
-            gap: px_to_rem(15px);
+            @include flex-row(px_to_rem(15px));
 
             .footer__bottom--social-icon {
-                width: px_to_rem(20px);
-                height: px_to_rem(20px);
+                @include size(px_to_rem(20px));
                 filter: invert(1);
                 opacity: 0.7;
-                transition: opacity 0.3s ease;
+                @include transition-opacity;
 
                 &:hover {
                     opacity: 1;

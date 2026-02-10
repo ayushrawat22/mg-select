@@ -5,34 +5,27 @@
 @use '../abstracts/media-queries' as *;
 
 .welcome {
-  scroll-snap-align: start;
+  @include scroll-snap-section;
   background-color: $white;
   height: 100vh;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
 
   &__container {
-    display: flex;
-    flex-direction: column;
+    @include flex-column(px_to_rem(60px));
     align-items: center;
     justify-content: center;
-    gap: px_to_rem(60px);
     width: 100%;
 
     &--top {
-      display: flex;
-      flex-direction: column;
+      @include flex-column(px_to_rem(12px));
       align-items: center;
-      gap: px_to_rem(12px);
 
       &-heading {
         font-family: $font-family-primary;
         font-size: px_to_rem(18px);
         font-weight: 500;
-        letter-spacing: px_to_rem(4px);
-        text-transform: uppercase;
+        @include uppercase-text(px_to_rem(4px));
         color: $black;
         margin: 0;
       }
@@ -49,9 +42,7 @@
       max-width: px_to_rem(900px);
       text-align: center;
       min-height: px_to_rem(120px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex-center;
 
       &-tagline,
       &-paragraph {
@@ -59,7 +50,7 @@
         width: 100%;
         padding: 0 px_to_rem(40px);
         margin: 0;
-        transition: opacity 0.5s ease;
+        @include transition-opacity(0.5s);
       }
 
       &-tagline {
@@ -112,9 +103,8 @@
 
       .carousel-item {
         margin-top: 60px !important;
-        display: flex !important;
+        @include flex-center;
         align-items: flex-end;
-        justify-content: center;
         flex: 0 0 auto;
         width: px_to_rem(274px);
         height: px_to_rem(248px);
@@ -128,9 +118,8 @@
         margin-right: 0;
 
         &:not(.active) {
-          display: flex !important;
+          @include flex-center;
           align-items: flex-end;
-          justify-content: center;
           opacity: 1 !important;
         }
 

@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
             price: 'Ex-showroom price: ₹ 74,99,000'
         },
         'M9': {
-            desc: 'Experience the pinnacle of luxury and comfort.',
+            desc: 'Meet the boldest expressions of MG innovation.',
             image: './media/m9-burger-menu.webp',
             price: 'Ex-showroom price: ₹ 70,90,000'
         }

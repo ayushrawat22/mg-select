@@ -10,16 +10,13 @@
 
 .header {
   &__nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    @include fixed-full;
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: px_to_rem(20px) px_to_rem(40px);
-    transition: all 0.3s ease;
+    @include transition;
 
     &--logo {
       height: px_to_rem(40px);
@@ -29,13 +26,9 @@
       z-index: 1002;
 
       &-main {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        transition: opacity 0.5s ease;
+        @include absolute-fill;
+        @include image-contain;
+        @include transition-opacity(0.5s);
         display: block;
         opacity: 0;
         pointer-events: none;
@@ -58,16 +51,11 @@
       z-index: 10001;
 
       &-btn {
-        background: transparent;
-        border: none;
-        display: flex;
-        flex-direction: column;
-        gap: px_to_rem(8px);
+        @include button-reset;
+        @include flex-column(px_to_rem(8px));
         align-items: flex-end;
         justify-content: center;
-        cursor: pointer;
-        height: px_to_rem(40px);
-        width: px_to_rem(40px);
+        @include size(px_to_rem(40px));
         padding: px_to_rem(8px) 0;
         position: relative;
       }
@@ -125,7 +113,7 @@
 
 .nav-modal {
   position: fixed;
-  top: 0;
+  top: px_to_rem(80px);
   left: 0;
   right: 0;
   width: px_to_rem(1376px);
@@ -133,31 +121,40 @@
   margin: 0 auto;
   padding: 0;
   background-color: $white;
-  z-index: 9999;
+  z-index: 10000;
 
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  @include hidden;
+  @include transition-visibility;
 
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   overflow: hidden;
   box-shadow: 0 4px 20px $shadow-medium;
 
   &.active {
-    opacity: 1;
-    visibility: visible;
+    @include visible;
+  }
+
+  &__wrapper {
+    @include flex-column;
+    flex: 1;
+    overflow: hidden;
+    margin-top: -30px;
+    width: calc(100% + #{px_to_rem(80px)});
+    margin-left: px_to_rem(-40px);
+    margin-right: px_to_rem(-40px);
+    padding-left: px_to_rem(40px);
+    padding-right: px_to_rem(40px);
   }
 
   &__header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     padding: px_to_rem(20px) px_to_rem(56px);
     border-bottom: 1px solid $grey-300;
     position: relative;
     min-height: px_to_rem(70px);
     flex-shrink: 0;
+    width: 100%;
+    margin-top: px_to_rem(40px);
 
     &--logo {
       width: px_to_rem(160px);
@@ -171,51 +168,41 @@
     &--actions {
       position: absolute;
       right: px_to_rem(56px);
-      display: flex;
+      @include flex-row(px_to_rem(30px));
       align-items: center;
-      gap: px_to_rem(30px);
 
       .nav-modal__locator {
-        display: flex;
+        @include flex-row(px_to_rem(8px));
         align-items: center;
-        gap: px_to_rem(8px);
         text-decoration: none;
         color: $black;
         font-family: $font-family-secondary;
         font-size: px_to_rem(10px);
         font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
+        @include uppercase-text(1.5px);
 
         &-icon {
           width: 18px;
           height: 18px;
         }
 
-        &:hover {
-          opacity: 0.7;
-        }
+        @include hover-opacity;
       }
     }
 
-    &:hover {
-      opacity: 0.7;
-    }
+    @include hover-opacity;
   }
 
   &__content {
-    display: flex;
+    @include flex-row(px_to_rem(40px));
     width: 100%;
     height: px_to_rem(500px);
     padding: px_to_rem(80px) px_to_rem(56px) px_to_rem(70px);
-    gap: px_to_rem(40px);
     overflow: hidden;
   }
 
   &__sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: px_to_rem(30px);
+    @include flex-column(px_to_rem(30px));
     width: px_to_rem(250px);
     flex-shrink: 0;
   }
@@ -224,9 +211,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: row;
-    gap: px_to_rem(30px);
+    @include flex-row(px_to_rem(30px));
 
     &-item {
       font-family: $font-family-secondary;
@@ -235,7 +220,7 @@
       cursor: pointer;
       position: relative;
       padding-bottom: px_to_rem(5px);
-      transition: color 0.3s ease;
+      @include transition(color);
       text-decoration: none;
       white-space: nowrap;
 
@@ -255,22 +240,19 @@
 
   &__main {
     flex: 1;
-    display: flex;
-    gap: px_to_rem(40px);
+    @include flex-row(px_to_rem(40px));
     overflow: hidden;
     padding-left: px_to_rem(40px);
     border-left: 1px solid $grey-300;
   }
 
   &__car-list {
-    display: flex;
-    flex-direction: column;
-    gap: px_to_rem(30px);
+    @include flex-column(px_to_rem(30px));
   }
 
   &__car-item {
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    @include transition-opacity;
     opacity: 0.5;
     position: relative;
 
@@ -295,9 +277,8 @@
       font-weight: 700;
       margin: 0 0 px_to_rem(8px);
       color: $black;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      transition: background 0.3s ease;
+      @include uppercase-text(0.5px);
+      @include transition(background);
     }
 
     .nav-modal__car-price {
@@ -310,11 +291,9 @@
 
   &__car-details {
     flex: 1;
-    display: flex;
-    flex-direction: row;
+    @include flex-row(px_to_rem(30px));
     justify-content: space-between;
     align-items: flex-start;
-    gap: px_to_rem(30px);
   }
 
   &__car-info {
@@ -326,8 +305,7 @@
     font-size: px_to_rem(36px);
     font-weight: 300;
     margin: 0 0 px_to_rem(15px);
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    @include uppercase-text(2px);
     color: $black;
   }
 
@@ -340,13 +318,10 @@
   }
 
   &__car-actions {
-    display: flex;
-    flex-direction: column;
-    gap: px_to_rem(18px);
+    @include flex-column(px_to_rem(18px));
 
     .nav-modal__btn {
-      display: inline-flex;
-      align-items: center;
+      @include inline-flex-center;
       justify-content: space-between;
       border: 1px solid $black;
       padding: px_to_rem(14px) px_to_rem(20px);
@@ -355,11 +330,10 @@
       font-family: $font-family-secondary;
       font-size: px_to_rem(12px);
       font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      @include uppercase-text(2px);
       width: fit-content;
       min-width: px_to_rem(140px);
-      transition: all 0.3s ease;
+      @include transition;
       gap: px_to_rem(15px);
 
       &:hover {
@@ -374,16 +348,14 @@
     }
 
     .nav-modal__btn-link {
-      display: inline-flex;
-      align-items: center;
+      @include inline-flex-center;
       gap: px_to_rem(8px);
       text-decoration: none;
       color: $black;
       font-family: $font-family-secondary;
       font-size: px_to_rem(11px);
       font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      @include uppercase-text(1px);
 
       &:hover {
         text-decoration: underline;
@@ -398,9 +370,7 @@
 
   &__car-image-wrapper {
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     max-width: px_to_rem(550px);
   }
 
@@ -408,7 +378,7 @@
     max-width: 100%;
     max-height: px_to_rem(300px);
     height: auto;
-    object-fit: contain;
+    @include image-contain;
   }
 }
 

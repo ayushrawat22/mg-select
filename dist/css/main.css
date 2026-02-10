@@ -62,18 +62,15 @@ body {
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-}
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
-}
-html,
-body {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   height: 100vh;
   width: 100vw;
   overflow-y: scroll;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 ul,
@@ -106,6 +103,7 @@ footer {
 .footer__top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   align-items: flex-start;
   margin-bottom: 2.5rem;
 }
@@ -127,6 +125,7 @@ footer {
 }
 .footer__top--newsletter-form {
   display: flex;
+  flex-direction: row;
   gap: 0.625rem;
   margin-bottom: 0.9375rem;
 }
@@ -139,6 +138,9 @@ footer {
   font-family: "Inter", sans-serif;
   font-size: 0.875rem;
 }
+.footer__top--newsletter-input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.15);
+}
 .footer__top--newsletter-input::placeholder {
   color: rgba(255, 255, 255, 0.15);
 }
@@ -147,16 +149,19 @@ footer {
 }
 .footer__top--newsletter-btn {
   background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
   border: 1px solid #ffffff;
   color: #ffffff;
   padding: 0.625rem 1.25rem;
-  cursor: pointer;
   font-family: "Inter", sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   display: flex;
-  align-items: center;
+  flex-direction: row;
   gap: 0.3125rem;
+  align-items: center;
   transition: all 0.3s ease;
 }
 .footer__top--newsletter-btn:hover {
@@ -165,8 +170,9 @@ footer {
 }
 .footer__top--newsletter-privacy {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   gap: 0.625rem;
+  align-items: center;
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -202,6 +208,7 @@ footer {
   font-size: 0.875rem;
   transition: color 0.3s ease;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 .footer__links--list .footer__links--item .footer__links--link:hover {
   color: #ffffff;
@@ -218,6 +225,7 @@ footer {
 }
 .footer__bottom--left {
   display: flex;
+  flex-direction: row;
   gap: 1.25rem;
 }
 .footer__bottom--left .footer__bottom--link {
@@ -229,6 +237,7 @@ footer {
 }
 .footer__bottom--right {
   display: flex;
+  flex-direction: row;
   gap: 0.9375rem;
 }
 .footer__bottom--right .footer__bottom--social-icon {
@@ -271,7 +280,8 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: opacity 0.5s ease;
   display: block;
   opacity: 0;
@@ -294,14 +304,15 @@ footer {
 .header__nav--hamburger-btn {
   background: transparent;
   border: none;
+  cursor: pointer;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   align-items: flex-end;
   justify-content: center;
-  cursor: pointer;
-  height: 2.5rem;
   width: 2.5rem;
+  height: 2.5rem;
   padding: 0.5rem 0;
   position: relative;
 }
@@ -342,7 +353,7 @@ footer {
 
 .nav-modal {
   position: fixed;
-  top: 0;
+  top: 5rem;
   left: 0;
   right: 0;
   width: 86rem;
@@ -350,7 +361,7 @@ footer {
   margin: 0 auto;
   padding: 0;
   background-color: #ffffff;
-  z-index: 9999;
+  z-index: 10000;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
@@ -363,15 +374,29 @@ footer {
   opacity: 1;
   visibility: visible;
 }
+.nav-modal__wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  margin-top: -30px;
+  width: calc(100% + 5rem);
+  margin-left: -2.5rem;
+  margin-right: -2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
 .nav-modal__header {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 1.25rem 3.5rem;
   border-bottom: 1px solid #eee;
   position: relative;
   min-height: 4.375rem;
   flex-shrink: 0;
+  width: 100%;
+  margin-top: 2.5rem;
 }
 .nav-modal__header--logo {
   width: 10rem;
@@ -384,13 +409,15 @@ footer {
   position: absolute;
   right: 3.5rem;
   display: flex;
-  align-items: center;
+  flex-direction: row;
   gap: 1.875rem;
+  align-items: center;
 }
 .nav-modal__header--actions .nav-modal__locator {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   gap: 0.5rem;
+  align-items: center;
   text-decoration: none;
   color: #000000;
   font-family: "Roboto", sans-serif;
@@ -411,10 +438,11 @@ footer {
 }
 .nav-modal__content {
   display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
   width: 100%;
   height: 31.25rem;
   padding: 5rem 3.5rem 4.375rem;
-  gap: 2.5rem;
   overflow: hidden;
 }
 .nav-modal__sidebar {
@@ -456,6 +484,7 @@ footer {
 .nav-modal__main {
   flex: 1;
   display: flex;
+  flex-direction: row;
   gap: 2.5rem;
   overflow: hidden;
   padding-left: 2.5rem;
@@ -504,9 +533,9 @@ footer {
   flex: 1;
   display: flex;
   flex-direction: row;
+  gap: 1.875rem;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 1.875rem;
 }
 .nav-modal__car-info {
   max-width: 21.875rem;
@@ -545,6 +574,7 @@ footer {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
+  width: -moz-fit-content;
   width: fit-content;
   min-width: 8.75rem;
   transition: all 0.3s ease;
@@ -588,7 +618,8 @@ footer {
   max-width: 100%;
   max-height: 18.75rem;
   height: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 @media (max-width: 768px) {
@@ -645,7 +676,8 @@ footer {
 .hero__wrapper--video video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .hero__wrapper--content {
   position: absolute;
@@ -653,8 +685,8 @@ footer {
   z-index: 2;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
   gap: 1.875rem;
+  align-items: flex-end;
   padding: 2.5rem 5rem;
 }
 .hero__wrapper--content-text {
@@ -742,7 +774,8 @@ footer {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: opacity 0.5s ease;
 }
 .showcase__bg--image.night {
@@ -791,7 +824,8 @@ footer {
   position: absolute;
   max-width: 80%;
   max-height: 80%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: opacity 0.5s ease;
 }
 .showcase__car--image.night {
@@ -824,8 +858,9 @@ footer {
 }
 .showcase__info--actions {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   gap: 1.5rem;
+  align-items: center;
 }
 .showcase__info--btn {
   display: inline-flex;
@@ -834,8 +869,8 @@ footer {
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 400;
-  letter-spacing: 0.5px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
   transition: opacity 0.25s ease;
 }
 .showcase__info--btn:hover {
@@ -855,6 +890,7 @@ footer {
   transform: translateX(-50%);
   z-index: 10;
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 0.5rem;
   margin: 0;
@@ -910,23 +946,23 @@ footer {
 .welcome__container {
   display: flex;
   flex-direction: column;
+  gap: 3.75rem;
   align-items: center;
   justify-content: center;
-  gap: 3.75rem;
   width: 100%;
 }
 .welcome__container--top {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.75rem;
+  align-items: center;
 }
 .welcome__container--top-heading {
   font-family: "Inter", sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
-  letter-spacing: 0.25rem;
   text-transform: uppercase;
+  letter-spacing: 0.25rem;
   color: #000000;
   margin: 0;
 }
@@ -983,6 +1019,7 @@ footer {
   flex-wrap: nowrap;
   gap: 1.25rem;
   animation: scrollCarousel 40s linear infinite;
+  width: -moz-max-content;
   width: max-content;
   overflow: visible;
 }
@@ -991,9 +1028,10 @@ footer {
 }
 .welcome__container--carousel .carousel-item {
   margin-top: 60px !important;
-  display: flex !important;
-  align-items: flex-end;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  align-items: flex-end;
   flex: 0 0 auto;
   width: 17.125rem;
   height: 15.5rem;
@@ -1007,16 +1045,19 @@ footer {
   margin-right: 0;
 }
 .welcome__container--carousel .carousel-item:not(.active) {
-  display: flex !important;
-  align-items: flex-end;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  align-items: flex-end;
   opacity: 1 !important;
 }
 .welcome__container--carousel .carousel-item .welcome__container--carousel-image {
   width: 100%;
   height: auto;
-  object-fit: cover;
-  object-position: bottom center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom center;
+     object-position: bottom center;
   display: block;
   margin: 0;
 }
@@ -1079,6 +1120,8 @@ body.third-section-active .header__nav {
   padding: 0;
   background: transparent;
   border: none;
+  cursor: pointer;
+  padding: 0;
 }
 .carousel-control-prev .carousel-arrow-bg, .carousel-control-next .carousel-arrow-bg {
   position: absolute;
@@ -1109,7 +1152,8 @@ body.third-section-active .header__nav {
   z-index: -1;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .experience .carousel {
   z-index: 10;
@@ -1132,7 +1176,8 @@ body.third-section-active .header__nav {
   width: auto;
   height: 80vh;
   max-width: 90vw;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   border-radius: 12px;
 }
 .experience .carousel-control-prev,
@@ -1158,8 +1203,8 @@ body.third-section-active .header__nav {
 .history__heading--main {
   font-family: "Inter", sans-serif;
   font-size: 0.875rem;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: #1a1a1a;
   position: relative;
   display: inline-block;
@@ -1179,8 +1224,8 @@ body.third-section-active .header__nav {
   margin-bottom: 3.75rem;
 }
 .history__wrapper--heading-main {
-  font-family: "Roboto", sans-serif;
-  font-size: 3rem;
+  font-family: "Sequel", serif;
+  font-size: 1.875rem;
   color: #1a1a1a;
 }
 .history__wrapper--content {
@@ -1201,7 +1246,7 @@ body.third-section-active .header__nav {
 .swiper-slide {
   width: 13.75rem;
   height: auto;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   margin-right: 1.25rem;
   display: flex;
   flex-direction: column;
@@ -1211,7 +1256,8 @@ body.third-section-active .header__nav {
 .swiper-slide .history__image {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -1224,8 +1270,8 @@ body.third-section-active .header__nav {
   font-family: "Inter", sans-serif;
   font-size: 0.625rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
   z-index: 2;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -1253,5 +1299,3 @@ body.third-section-active .header__nav {
 .swiper-slide-active .history__image {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
-
-/*# sourceMappingURL=main.css.map */

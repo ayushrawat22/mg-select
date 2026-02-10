@@ -24,23 +24,40 @@ if (mute && unmute && video) {
     });
 }
 //swiper js
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {  
+    //took help from yt video : https://youtu.be/4oyj_smPAjc?si=TYpXqYEJfuT50iQj
     const swiperElement = document.querySelector('.swiper');
-    if (swiperElement && typeof Swiper !== 'undefined') {
-        const swiper = new Swiper('.swiper', {
-            slidesPerView: 'auto',
-            spaceBetween: 30,
-            centeredSlides: true,
-            bgImage: true,
-            breakpoints: {
-                768: {
-                    spaceBetween: 50,
-                }
-            }
-        });
-    }
 
-    // Carousel Logic
+    if (swiperElement && typeof Swiper !== 'undefined') {
+        const genericSwipers = document.querySelectorAll('.swiper:not(.history-swiper)');
+        genericSwipers.forEach(el => {
+            new Swiper(el, {
+                slidesPerView: 'auto',
+                spaceBetween: 30,
+                centeredSlides: true,
+                speed: 500,
+                breakpoints: {
+                    768: { spaceBetween: 50 }
+                }
+            });
+        });
+
+        const historyEl = document.querySelector('.history-swiper');
+        if (historyEl) {
+            const historySwiper = new Swiper(historyEl, {
+                slidesPerView: 'auto',
+                spaceBetween: 40,
+                centeredSlides: true,
+                slideToClickedSlide: true,
+                speed: 700,
+                grabCursor: true,
+                breakpoints: { 768: { spaceBetween: 80 } }
+            });
+
+
+        }
+    }
+    
     const carShowcase = document.getElementById('carShowcase');
     const showcaseTitle = document.querySelector('.showcase__info--title');
     const showcaseTagline = document.querySelector('.showcase__info--tagline');
@@ -134,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const targetSection = document.getElementById("hide-logo");
+    const targetSection = document.getElementById("hide-logo");  //found this trick on stackoverflow to detect when which section is active
     if (targetSection) {
         const observer = new IntersectionObserver(
             (entries) => {

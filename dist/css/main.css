@@ -1246,12 +1246,21 @@ body.third-section-active .header__nav {
 .swiper-slide {
   width: 13.75rem;
   height: auto;
-  transition: all 0.3s ease;
   margin-right: 1.25rem;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
   justify-content: flex-end;
   position: relative;
+  transform-origin: center center;
+  transform: scale(0.88);
+}
+.swiper-slide.history__slide--featured {
+  width: 26.25rem;
+}
+.swiper-slide.swiper-slide-prev, .swiper-slide.swiper-slide-next {
+  transform: scale(0.95);
+  opacity: 0.98;
 }
 .swiper-slide .history__image {
   width: 100%;
@@ -1260,6 +1269,7 @@ body.third-section-active .header__nav {
      object-fit: cover;
   display: block;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
 }
 .swiper-slide .history__title {
   position: absolute;
@@ -1275,27 +1285,51 @@ body.third-section-active .header__nav {
   z-index: 2;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-.swiper-slide .history__title::before {
-  content: "+ ";
-}
 
 .history__year {
   font-family: "Sequel", serif;
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   color: #1a1a1a;
-  margin-bottom: 0.625rem;
+  margin: 0;
   display: block;
-  text-align: right;
+  text-align: center;
   font-weight: 600;
+  position: absolute;
+  top: -1.125rem;
+  left: 0;
+  width: 100%;
+  transition: font-size 0.25s ease, top 0.25s ease, color 0.25s ease;
 }
 
 .swiper-slide-active {
   opacity: 1;
-  z-index: 10;
+  z-index: 40;
+  transform: scale(1.22);
 }
 .swiper-slide-active .history__year {
   color: #000000;
+  font-size: 2.25rem;
+  top: -2.625rem;
 }
 .swiper-slide-active .history__image {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: calc(100% - 2.5rem);
+    padding-top: 1.375rem;
+    transform: scale(0.95);
+  }
+  .swiper-slide-active {
+    transform: scale(1.05);
+  }
+  .history__year {
+    font-size: 1.125rem;
+    top: -1.75rem;
+  }
+  .history__timeline {
+    margin-top: 1.25rem;
+  }
 }

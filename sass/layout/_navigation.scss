@@ -58,6 +58,12 @@
         @include size(px_to_rem(40px));
         padding: px_to_rem(8px) 0;
         position: relative;
+
+        &:hover {
+          .header__nav--hamburger-bottom {
+            width: px_to_rem(32px);
+          }
+        }
       }
 
       &-stroke {
@@ -83,10 +89,6 @@
 
       &-bottom {
         width: px_to_rem(20px);
-      }
-
-      &-btn:hover &-bottom {
-        width: px_to_rem(32px);
       }
 
       &.active {
@@ -163,25 +165,25 @@
       right: px_to_rem(56px);
       @include flex-row(px_to_rem(30px));
       align-items: center;
-
-      .nav-modal__locator {
-        @include flex-row(px_to_rem(8px));
-        align-items: center;
-        text-decoration: none;
-        color: $black;
-        font-family: $font-family-secondary;
-        font-size: px_to_rem(10px);
-        font-weight: 500;
-        @include uppercase-text(1.5px);
-
-        &-icon {
-          width: 18px;
-          height: 18px;
-        }
-
-        @include hover-opacity;
-      }
     }
+  }
+
+  &__locator {
+    @include flex-row(px_to_rem(8px));
+    align-items: center;
+    text-decoration: none;
+    color: $black;
+    font-family: $font-family-secondary;
+    font-size: px_to_rem(10px);
+    font-weight: 500;
+    @include uppercase-text(1.5px);
+
+    &-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    @include hover-opacity;
   }
 
   &__content {
@@ -261,23 +263,23 @@
     &:hover {
       opacity: 1;
     }
+  }
 
-    .nav-modal__car-name {
-      font-family: $font-family-primary;
-      font-size: px_to_rem(20px);
-      font-weight: 700;
-      margin: 0 0 px_to_rem(8px);
-      color: $black;
-      @include uppercase-text(0.5px);
-      @include transition(background);
-    }
+  &__car-name {
+    font-family: $font-family-primary;
+    font-size: px_to_rem(20px);
+    font-weight: 700;
+    margin: 0 0 px_to_rem(8px);
+    color: $black;
+    @include uppercase-text(0.5px);
+    @include transition(background);
+  }
 
-    .nav-modal__car-price {
-      font-family: $font-family-secondary;
-      font-size: px_to_rem(13px);
-      color: $grey-500;
-      margin: 0;
-    }
+  &__car-price {
+    font-family: $font-family-secondary;
+    font-size: px_to_rem(13px);
+    color: $grey-500;
+    margin: 0;
   }
 
   &__car-details {
@@ -310,35 +312,35 @@
 
   &__car-actions {
     @include flex-column(px_to_rem(18px));
+  }
 
-    .nav-modal__btn {
-      @include inline-flex-center;
-      justify-content: space-between;
-      border: 1px solid $black;
-      padding: px_to_rem(14px) px_to_rem(20px);
-      text-decoration: none;
-      color: $black;
-      font-family: $font-family-secondary;
-      font-size: px_to_rem(12px);
-      font-weight: 500;
-      @include uppercase-text(2px);
-      width: fit-content;
-      min-width: px_to_rem(140px);
-      @include transition;
-      gap: px_to_rem(15px);
+  &__btn {
+    @include inline-flex-center;
+    justify-content: space-between;
+    border: 1px solid $black;
+    padding: px_to_rem(14px) px_to_rem(20px);
+    text-decoration: none;
+    color: $black;
+    font-family: $font-family-secondary;
+    font-size: px_to_rem(12px);
+    font-weight: 500;
+    @include uppercase-text(2px);
+    width: fit-content;
+    min-width: px_to_rem(140px);
+    @include transition;
+    gap: px_to_rem(15px);
 
-      &:hover {
-        background-color: $black;
-        color: $white;
-      }
-
-      &-icon {
-        width: 12px;
-        height: 12px;
-      }
+    &:hover {
+      background-color: $black;
+      color: $white;
     }
 
-    .nav-modal__btn-link {
+    &-icon {
+      width: 12px;
+      height: 12px;
+    }
+
+    &-link {
       @include inline-flex-center;
       gap: px_to_rem(8px);
       text-decoration: none;

@@ -97,18 +97,20 @@
       }
     }
   }
-}
 
-.hero__scroll-text {
-  margin: 0;
-  font-family: $font-family-primary;
-  font-size: px_to_rem(14px);
-  letter-spacing: 0.1em;
-}
+  &__scroll {
+    &-text {
+      margin: 0;
+      font-family: $font-family-primary;
+      font-size: px_to_rem(14px);
+      letter-spacing: 0.1em;
+    }
 
-.hero__scroll-arrow {
-  @include size(px_to_rem(30px));
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(45deg) brightness(102%) contrast(101%);
+    &-arrow {
+      @include size(px_to_rem(30px));
+      filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(45deg) brightness(102%) contrast(101%);
+    }
+  }
 }
 
 .indicators {

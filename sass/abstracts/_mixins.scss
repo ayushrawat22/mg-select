@@ -11,6 +11,7 @@
 @mixin flex-column($gap: null) {
   display: flex;
   flex-direction: column;
+
   @if $gap {
     gap: $gap;
   }
@@ -19,6 +20,7 @@
 @mixin flex-row($gap: null) {
   display: flex;
   flex-direction: row;
+
   @if $gap {
     gap: $gap;
   }
@@ -68,9 +70,9 @@
   height: 100vh;
 }
 
-@mixin size($size) {
-  width: $size;
-  height: $size;
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
 }
 
 

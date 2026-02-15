@@ -17,9 +17,6 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   
-  <!-- fullPage.js CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css">
-
   <!-- swiper js -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="./dist/css/main.css">
@@ -106,7 +103,7 @@
 </header>
 
 
-<main id="fullpage">
+<main>
   <div class="section hero " id="hero">
     <div class="hero__wrapper">
       <div class="hero__wrapper--video">
@@ -266,26 +263,26 @@
   <div class="experience__background">
     <img src="./media/dealer-carousel-bg.webp" alt="dealer carousel background">
   </div>
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
+  <div id="carouselExampleControls" class="carousel slide experience__carousel" data-bs-ride="carousel" data-bs-interval="7000">
+  <div class="carousel-inner experience__carousel-inner">
+    <div class="carousel-item active experience__carousel-item">
       <img class="experience__carousel-img d-block w-100" src="./media/01-bengaluru-city-launch-1920-x-1080.webp" alt="First slide">
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item experience__carousel-item">
       <img class="experience__carousel-img d-block w-100" src="./media/pune-city-launch-1920-x-1080.webp" alt="Second slide">
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item experience__carousel-item">
       <img class="experience__carousel-img d-block w-100" src="./media/chandigarh-city-launch-1920-x-1080.webp" alt="Third slide">
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <div class="carousel-arrow-bg" aria-hidden="true"></div>
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <button class="carousel-control-prev experience__carousel-control experience__carousel-control--prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <div class="carousel-arrow-bg experience__carousel-arrow-bg" aria-hidden="true"></div>
+    <span class="carousel-control-prev-icon experience__carousel-control-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <div class="carousel-arrow-bg" aria-hidden="true"></div>
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <button class="carousel-control-next experience__carousel-control experience__carousel-control--next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <div class="carousel-arrow-bg experience__carousel-arrow-bg" aria-hidden="true"></div>
+    <span class="carousel-control-next-icon experience__carousel-control-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
 </div>
@@ -566,7 +563,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+
 <script src="./scripts/script.js"></script>
 </body>
 </html>

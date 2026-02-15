@@ -4,39 +4,9 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/media-queries' as *;
 
-.carousel-control {
-
-  &-prev,
-  &-next {
-    margin-left: 70px;
-    margin-right: 70px;
-    @include size(68px);
-    top: 50%;
-    transform: translateY(-50%);
-    @include flex-center;
-    position: absolute;
-    padding: 0;
-    @include button-reset;
-
-    .carousel-arrow-bg {
-      position: absolute;
-      @include size(100px);
-      background: $black;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    &-icon {
-      z-index: 2;
-      position: relative;
-    }
-  }
-}
-
 .experience {
   @include scroll-snap-section;
-  width: 100vw;
-  height: 100vh;
+  @include size(100vw, 100vh);
   position: relative;
   overflow: hidden;
 
@@ -46,22 +16,20 @@
     @include image-cover;
   }
 
-  .carousel {
+  &__carousel {
     z-index: 10;
     position: relative;
-    height: 100%;
-    width: 100%;
-  }
+    @include size(100%);
 
-  .carousel-inner {
-    width: 100%;
-    height: 100%;
-  }
+    &-inner {
+      @include size(100%);
+    }
 
-  .carousel-item {
-    height: 100%;
+    &-item {
+      height: 100%;
+    }
 
-    .experience__carousel-img {
+    &-img {
       @include absolute-center;
       width: auto;
       height: 80vh;
@@ -69,11 +37,39 @@
       @include image-contain;
       border-radius: 12px;
     }
-  }
 
-  .carousel-control-prev,
-  .carousel-control-next {
-    top: 50%;
-    transform: translateY(-50%);
+    &-control {
+      margin-left: px_to_rem(70px);
+      margin-right: px_to_rem(70px);
+      @include size(px_to_rem(68px));
+      top: 50%;
+      transform: translateY(-50%);
+      @include flex-center;
+      position: absolute;
+      padding: 0;
+      @include button-reset;
+      opacity: 1;
+
+      &--prev {
+        left: 0;
+      }
+
+      &--next {
+        right: 0;
+      }
+
+      &-icon {
+        z-index: 2;
+        position: relative;
+      }
+    }
+
+    &-arrow-bg {
+      position: absolute;
+      @include size(px_to_rem(100px));
+      background: $grey-600;
+      border-radius: 50%;
+      z-index: 1;
+    }
   }
 }

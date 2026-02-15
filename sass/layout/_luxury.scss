@@ -55,14 +55,12 @@
       }
     }
 
-
     &--carousel {
       width: 100vw;
       overflow: hidden;
       position: relative;
 
-      .carousel,
-      .carousel.slide {
+      .carousel {
         overflow: visible;
         position: relative;
       }
@@ -84,7 +82,7 @@
       }
 
       .carousel-item {
-        margin-top: 60px !important;
+        margin-top: px_to_rem(60px) !important;
         @include flex-center;
         align-items: flex-end;
         flex: 0 0 auto;
@@ -109,7 +107,6 @@
       &-image {
         width: 100%;
         height: auto;
-        object-fit: cover;
         object-position: bottom center;
         display: block;
         margin: 0;

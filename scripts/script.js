@@ -23,6 +23,7 @@ if (mute && unmute && video) {
         video.removeAttribute('controls');
     });
 }
+
 //swiper js
 document.addEventListener('DOMContentLoaded', () => {  
     //took help from yt video : https://youtu.be/4oyj_smPAjc?si=TYpXqYEJfuT50iQj
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
     }
-    
+
     const carShowcase = document.getElementById('carShowcase');
     const showcaseTitle = document.querySelector('.showcase__info--title');
     const showcaseTagline = document.querySelector('.showcase__info--tagline');
@@ -239,4 +240,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navCarTitle) navCarTitle.style.transition = 'opacity 0.3s ease';
     if (navCarDesc) navCarDesc.style.transition = 'opacity 0.3s ease';
     if (navCarImage) navCarImage.style.transition = 'opacity 0.3s ease';
+
+
 });

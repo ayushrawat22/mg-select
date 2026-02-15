@@ -138,7 +138,8 @@
   }
 
   &__main-container {
-    width: px_to_rem(1485px);
+    width: 100%;
+    max-width: px_to_rem(1485px);
     background-color: $white;
     @include flex-column;
     overflow: hidden;

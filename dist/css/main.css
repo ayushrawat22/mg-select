@@ -396,7 +396,8 @@ a:hover {
   transform: translateY(0);
 }
 .nav-modal__main-container {
-  width: 92.8125rem;
+  width: 100%;
+  max-width: 92.8125rem;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;

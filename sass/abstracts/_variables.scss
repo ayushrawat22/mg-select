@@ -1,6 +1,15 @@
 
 $font-family-primary: 'Inter', sans-serif !default;
+
 $font-family-secondary: 'Roboto', sans-serif !default;
-$font-family-display: 'Sequel', serif !default;
-$font-family-cta: 'Dienstag', $font-family-display, $font-family-primary !default;
-$mobile: 768px;
+
+$font-family-display: 'Sequel', sans-serif !default;
+
+$font-family-cta: 'Dienstag', 'Sequel', 'Inter', sans-serif !default;
+
+
+
+$mobile: 768px !default;
+$tablet: 1024px !default;
+$desktop: 1280px !default;
+$large-desktop: 1440px !default;

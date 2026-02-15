@@ -1,180 +1,114 @@
-// Mute/Unmute Logic
-const mute = document.querySelector('.hero__icon.mute');
-const unmute = document.querySelector('.hero__icon.unmute');
-const video = document.querySelector('.hero__wrapper--video video');
-const heroSection = document.querySelector('.hero');
+document.addEventListener('DOMContentLoaded', () => {
+    // DOM Elements
+    const body = document.body;
+    const headerNav = document.querySelector('.header__nav');
+    const logoLight = document.querySelector('.header__nav--logo-main.logo-light');
+    const logoDark = document.querySelector('.header__nav--logo-main.logo-dark');
+    const hamburger = document.querySelector('.header__nav--hamburger');
+    const hamburgerStrokes = document.querySelectorAll('.header__nav--hamburger-stroke');
+    const navModal = document.querySelector('.nav-modal');
 
-if (mute && unmute && video) {
-    mute.addEventListener('click', () => {
-        mute.style.opacity = '0';
-        mute.style.pointerEvents = 'none';
-        unmute.style.opacity = '1';
-        unmute.style.pointerEvents = 'auto';
-        video.muted = false;
-        video.removeAttribute('controls');
-    });
-
-    unmute.addEventListener('click', () => {
-        unmute.style.opacity = '0';
-        unmute.style.pointerEvents = 'none';
-        mute.style.opacity = '1';
-        mute.style.pointerEvents = 'auto';
-        video.muted = true;
-        video.removeAttribute('controls');
-    });
-}
-
-//swiper js
-document.addEventListener('DOMContentLoaded', () => {  
-    //took help from yt video : https://youtu.be/4oyj_smPAjc?si=TYpXqYEJfuT50iQj
-    const swiperElement = document.querySelector('.swiper');
-
-    if (swiperElement && typeof Swiper !== 'undefined') {
-        const genericSwipers = document.querySelectorAll('.swiper:not(.history-swiper)');
-        genericSwipers.forEach(el => {
-            new Swiper(el, {
-                slidesPerView: 'auto',
-                spaceBetween: 30,
-                centeredSlides: true,
-                speed: 500,
-                breakpoints: {
-                    768: { spaceBetween: 50 }
-                }
-            });
-        });
-
-        const historyEl = document.querySelector('.history-swiper');
-        if (historyEl) {
-            const historySwiper = new Swiper(historyEl, {
-                slidesPerView: 'auto',
-                spaceBetween: 40,
-                centeredSlides: true,
-                slideToClickedSlide: true,
-                speed: 700,
-                grabCursor: true,
-                breakpoints: { 768: { spaceBetween: 80 } }
-            });
-
-
-        }
-    }
-
-    const carShowcase = document.getElementById('carShowcase');
-    const showcaseTitle = document.querySelector('.showcase__info--title');
-    const showcaseTagline = document.querySelector('.showcase__info--tagline');
-
-    if (carShowcase) {
-        const updateCarInfo = () => {
-            const activeItem = carShowcase.querySelector('.carousel-item.active');
-            if (activeItem) {
-                const carName = activeItem.dataset.carName;
-                const carTagline = activeItem.dataset.carTagline;
-
-                if (showcaseTitle && carName) {
-                    showcaseTitle.textContent = carName;
-                }
-                if (showcaseTagline && carTagline) {
-                    showcaseTagline.textContent = carTagline;
-                }
-            }
-        };
-
-        const carousel = new bootstrap.Carousel(carShowcase);
-
-        const autoSlide = () => {
-            setTimeout(() => {
-                carousel.next();
-                autoSlide();
-            }, 7000);
-        };
-        autoSlide();
-
-        carShowcase.addEventListener('slid.bs.carousel', () => {
-            updateCarInfo();
-        });
-    }
-
-    // Day/Night Toggle functionality
     const showcaseToggle = document.querySelector('.showcase__toggle');
     const nightIcon = document.querySelector('.showcase__toggle--icon.night');
     const dayIcon = document.querySelector('.showcase__toggle--icon.day');
     const nightBg = document.querySelector('.showcase__bg--image.night');
     const dayBg = document.querySelector('.showcase__bg--image.day');
-    const logoLight = document.querySelector('.header__nav--logo-main.logo-light');
-    const logoDark = document.querySelector('.header__nav--logo-main.logo-dark');
-    const hamburgerStrokes = document.querySelectorAll('.header__nav--hamburger-stroke');
     const carNightImages = document.querySelectorAll('.showcase__car--image.night');
     const carDayImages = document.querySelectorAll('.showcase__car--image.day');
 
     let isDayMode = false;
 
+    //logo change whenstate change
+    const updateLogo = (forceBlack = false) => {
+        if (forceBlack || isDayMode) {
+            logoLight?.classList.remove('active');
+            logoDark?.classList.add('active');
+            hamburgerStrokes.forEach(s => s.classList.add('day-mode'));
+        } else {
+            logoDark?.classList.remove('active');
+            logoLight?.classList.add('active');
+            hamburgerStrokes.forEach(s => s.classList.remove('day-mode'));
+        }
+    };
+
+    // Intersection Observer for Sections 
+    const sections = {
+        hero: document.querySelector('.hero'),
+        showcase: document.querySelector('.showcase'),
+        welcome: document.querySelector('.welcome'),
+        experience: document.querySelector('.experience'),
+        history: document.querySelector('.history'),
+        footer: document.querySelector('.footer-wrapper')
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            const target = entry.target;
+
+            if (target === sections.hero || target === sections.showcase) {
+                headerNav.style.opacity = '1';
+                headerNav.style.pointerEvents = 'auto';
+                headerNav.style.visibility = 'visible';
+                updateLogo(false);
+            }
+
+            if (target === sections.welcome) {
+                headerNav.style.opacity = '0';
+                headerNav.style.pointerEvents = 'none';
+                headerNav.style.visibility = 'hidden';
+            }
+
+
+            if (target === sections.experience || target === sections.history) {
+                headerNav.style.opacity = '1';
+                headerNav.style.pointerEvents = 'auto';
+                headerNav.style.visibility = 'visible';
+                updateLogo(true);
+            }
+
+            if (target === sections.footer) {
+                headerNav.style.opacity = '0';
+                headerNav.style.pointerEvents = 'none';
+                headerNav.style.visibility = 'hidden';
+            }
+        });
+    }, { threshold: 0.2 });
+
+    Object.values(sections).forEach(s => s && observer.observe(s));
+
+    // Day/Night Toggle
     if (showcaseToggle) {
         showcaseToggle.addEventListener('click', (e) => {
             e.preventDefault();
-            e.stopPropagation();
             isDayMode = !isDayMode;
 
             if (isDayMode) {
-                // Switch to day mode
                 if (dayIcon) dayIcon.style.opacity = '1';
                 if (nightIcon) nightIcon.style.opacity = '0';
                 if (dayBg) dayBg.style.opacity = '1';
                 if (nightBg) nightBg.style.opacity = '0';
-                if (logoLight) logoLight.classList.remove('active');
-                if (logoDark) logoDark.classList.add('active');
-                hamburgerStrokes.forEach(stroke => stroke.classList.add('day-mode'));
-                if (carDayImages) carDayImages.forEach(img => img.style.opacity = '1');
-                if (carNightImages) carNightImages.forEach(img => img.style.opacity = '0');
+                carDayImages.forEach(img => img.style.opacity = '1');
+                carNightImages.forEach(img => img.style.opacity = '0');
             } else {
-                // Switch to night mode
                 if (nightIcon) nightIcon.style.opacity = '1';
                 if (dayIcon) dayIcon.style.opacity = '0';
                 if (nightBg) nightBg.style.opacity = '1';
                 if (dayBg) dayBg.style.opacity = '0';
-                if (logoDark) logoDark.classList.remove('active');
-                if (logoLight) logoLight.classList.add('active');
-                hamburgerStrokes.forEach(stroke => stroke.classList.remove('day-mode'));
-                if (carNightImages) carNightImages.forEach(img => img.style.opacity = '1');
-                if (carDayImages) carDayImages.forEach(img => img.style.opacity = '0');
+                carNightImages.forEach(img => img.style.opacity = '1');
+                carDayImages.forEach(img => img.style.opacity = '0');
+            }
+
+            const rect = sections.showcase?.getBoundingClientRect() || sections.hero?.getBoundingClientRect();
+            if ((rect && rect.top < window.innerHeight && rect.bottom > 0) &&
+                !(sections.experience.getBoundingClientRect().top < window.innerHeight && sections.experience.getBoundingClientRect().bottom > 0)) {
+                updateLogo(false);
             }
         });
     }
 
-    // Welcome Section Transition
-    const welcomeTagline = document.querySelector(".welcome__container--mid__wrapper-tagline");
-    const welcomeParagraph = document.querySelector(".welcome__container--mid__wrapper-paragraph");
-    if (welcomeTagline && welcomeParagraph) {
-        welcomeTagline.addEventListener('scroll', () => {
-            welcomeTagline.style.opacity = '0';
-            welcomeParagraph.style.opacity = '1';
-        });
-    }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const targetSection = document.getElementById("hide-logo");  //found this trick on stackoverflow to detect when which section is active
-    if (targetSection) {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        document.body.classList.add("third-section-active");
-                    } else {
-                        document.body.classList.remove("third-section-active");
-                    }
-                });
-            },
-            {
-                threshold: 0.5
-            }
-        );
-        observer.observe(targetSection);
-    }
-
-    const hamburger = document.querySelector('.header__nav--hamburger');
-    const navModal = document.querySelector('.nav-modal');
-    const body = document.body;
-
+    // Hamburger
     if (hamburger && navModal) {
         hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -183,14 +117,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (navModal.classList.contains('active')) {
                 body.style.overflow = 'hidden';
+                updateLogo(true);
             } else {
                 body.style.overflow = '';
+                const isDarkSection = (sections.experience.getBoundingClientRect().top < window.innerHeight && sections.experience.getBoundingClientRect().bottom > 0) ||
+                    (sections.history.getBoundingClientRect().top < window.innerHeight && sections.history.getBoundingClientRect().bottom > 0);
+                updateLogo(isDarkSection);
             }
         });
-    } else {
-        console.warn('Hamburger or Nav Modal not found', { hamburger, navModal });
     }
 
+    // Mute Logic
+    const mute = document.querySelector('.hero__icon.mute');
+    const unmute = document.querySelector('.hero__icon.unmute');
+    const video = document.querySelector('.hero__wrapper--video video');
+
+    if (mute && unmute && video) {
+        mute.addEventListener('click', () => {
+            mute.style.opacity = '0';
+            mute.style.pointerEvents = 'none';
+            unmute.style.opacity = '1';
+            unmute.style.pointerEvents = 'auto';
+            video.muted = false;
+        });
+
+        unmute.addEventListener('click', () => {
+            unmute.style.opacity = '0';
+            unmute.style.pointerEvents = 'none';
+            mute.style.opacity = '1';
+            mute.style.pointerEvents = 'auto';
+            video.muted = true;
+        });
+    }
+
+    // Nav Modal Car Logic
     const navCarItems = document.querySelectorAll('.nav-modal__car-item');
     const navCarTitle = document.querySelector('.nav-modal__car-title-large');
     const navCarDesc = document.querySelector('.nav-modal__car-desc');
@@ -199,47 +159,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const carData = {
         'CYBERSTER': {
             desc: 'Meet the boldest expressions of MG innovation.',
-            image: './media/cybie-header.webp',
-            price: 'Ex-showroom price: ₹ 74,99,000'
+            image: './media/cybie-header.webp'
         },
         'M9': {
             desc: 'Meet the boldest expressions of MG innovation.',
-            image: './media/m9-burger-menu.webp',
-            price: 'Ex-showroom price: ₹ 70,90,000'
+            image: './media/m9-burger-menu.webp'
         }
     };
 
-    if (navCarItems.length > 0) {
-        navCarItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navCarItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
+    navCarItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navCarItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            const carName = item.querySelector('.nav-modal__car-name').textContent.trim();
+            const data = carData[carName];
+            if (data && navCarTitle && navCarDesc && navCarImage) {
+                navCarTitle.style.opacity = '0';
+                navCarDesc.style.opacity = '0';
+                navCarImage.style.opacity = '0';
+                setTimeout(() => {
+                    navCarTitle.textContent = carName;
+                    navCarDesc.textContent = data.desc;
+                    navCarImage.src = data.image;
+                    navCarTitle.style.opacity = '1';
+                    navCarDesc.style.opacity = '1';
+                    navCarImage.style.opacity = '1';
+                }, 300);
+            }
+        });
+    });
 
-                const carName = item.querySelector('.nav-modal__car-name').textContent.trim();
-                const data = carData[carName];
+    // Swiper
+    if (typeof Swiper !== 'undefined') {
+        const historyEl = document.querySelector('.history-swiper');
 
-                if (data && navCarTitle && navCarDesc && navCarImage) {
-                    navCarTitle.style.opacity = '0';
-                    navCarDesc.style.opacity = '0';
-                    navCarImage.style.opacity = '0';
+        if (historyEl) {
+            new Swiper(historyEl, {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                loop: true,
+                initialSlide: 2,
+                spaceBetween: 60,
+                speed: 700,
+                grabCursor: false,
+                watchSlidesProgress: true,
+                slideToClickedSlide: true,
 
-                    setTimeout(() => {
-                        navCarTitle.textContent = carName;
-                        navCarDesc.textContent = data.desc;
-                        navCarImage.src = data.image;
-
-                        navCarTitle.style.opacity = '1';
-                        navCarDesc.style.opacity = '1';
-                        navCarImage.style.opacity = '1';
-                    }, 300);
+                breakpoints: {
+                    768: { spaceBetween: 80 }
                 }
             });
-        });
+        }
     }
 
-    if (navCarTitle) navCarTitle.style.transition = 'opacity 0.3s ease';
-    if (navCarDesc) navCarDesc.style.transition = 'opacity 0.3s ease';
-    if (navCarImage) navCarImage.style.transition = 'opacity 0.3s ease';
-
-
 });
+
+

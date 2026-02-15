@@ -11,7 +11,7 @@
 .header {
   &__nav {
     @include fixed-full;
-    z-index: 9999;
+    z-index: 10006;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -23,7 +23,7 @@
       width: px_to_rem(206px);
       display: block;
       position: relative;
-      z-index: 1002;
+      z-index: 10005;
 
       &-main {
         @include absolute-fill;
@@ -113,37 +113,40 @@
 
 .nav-modal {
   position: fixed;
-  top: px_to_rem(80px);
+  top: 0;
   left: 0;
-  right: 0;
-  width: px_to_rem(1376px);
-  max-width: calc(100% - #{px_to_rem(32px)});
-  margin: 0 auto;
-  padding: 0;
-  background-color: $white;
+  width: 100vw;
+  height: 100vh;
   z-index: 10000;
-
-  @include hidden;
-  @include transition-visibility;
-
-  @include flex-column;
-  overflow: hidden;
-  box-shadow: 0 4px 20px $shadow-medium;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.4s, opacity 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgba($black, 0.4);
 
   &.active {
-    @include visible;
+    visibility: visible;
+    opacity: 1;
+
+    .nav-modal__main-container {
+      transform: translate(-50%, 0);
+    }
   }
 
-  &__wrapper {
+  &__main-container {
+    width: px_to_rem(1650px);
+    background-color: $white;
     @include flex-column;
-    flex: 1;
     overflow: hidden;
-    margin-top: -30px;
-    width: calc(100% + #{px_to_rem(80px)});
-    margin-left: px_to_rem(-40px);
-    margin-right: px_to_rem(-40px);
-    padding-left: px_to_rem(40px);
-    padding-right: px_to_rem(40px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    height: px_to_rem(600px);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   &__header {
@@ -151,19 +154,9 @@
     padding: px_to_rem(20px) px_to_rem(56px);
     border-bottom: 1px solid $grey-300;
     position: relative;
-    min-height: px_to_rem(70px);
-    flex-shrink: 0;
+    min-height: px_to_rem(80px);
     width: 100%;
-    margin-top: px_to_rem(40px);
-
-    &--logo {
-      width: px_to_rem(160px);
-
-      &-img {
-        width: 100%;
-        height: auto;
-      }
-    }
+    flex-shrink: 0;
 
     &--actions {
       position: absolute;
@@ -189,16 +182,14 @@
         @include hover-opacity;
       }
     }
-
-    @include hover-opacity;
   }
 
   &__content {
     @include flex-row(px_to_rem(40px));
     width: 100%;
-    height: px_to_rem(500px);
-    padding: px_to_rem(80px) px_to_rem(56px) px_to_rem(70px);
-    overflow: hidden;
+    flex: 1;
+    padding: px_to_rem(40px) px_to_rem(56px);
+    overflow-y: auto;
   }
 
   &__sidebar {
@@ -384,9 +375,13 @@
 
 @media (max-width: $mobile) {
   .nav-modal {
-    margin: px_to_rem(16px) px_to_rem(16px) 0;
-    width: calc(100% - #{px_to_rem(32px)});
-    max-height: 80vh;
+    padding-top: px_to_rem(60px);
+
+    &__main-container {
+      margin: px_to_rem(16px) px_to_rem(16px) 0;
+      width: calc(100% - #{px_to_rem(32px)});
+      max-height: 80vh;
+    }
 
     &__content {
       flex-direction: column;

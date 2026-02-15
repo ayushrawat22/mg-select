@@ -40,7 +40,7 @@
   position: relative;
   overflow: hidden;
 
-  &__backround {
+  &__background {
     @include absolute-fill;
     z-index: -1;
     @include image-cover;

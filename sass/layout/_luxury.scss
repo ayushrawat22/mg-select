@@ -54,7 +54,7 @@
       }
 
       &-tagline {
-        font-family: $font-family-display;
+        font-family: $font-family-primary;
         font-size: px_to_rem(48px);
         font-weight: 400;
         color: $black;
@@ -122,15 +122,15 @@
           align-items: flex-end;
           opacity: 1 !important;
         }
+      }
 
-        .welcome__container--carousel-image {
-          width: 100%;
-          height: auto;
-          object-fit: cover;
-          object-position: bottom center;
-          display: block;
-          margin: 0;
-        }
+      &-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: bottom center;
+        display: block;
+        margin: 0;
       }
     }
   }

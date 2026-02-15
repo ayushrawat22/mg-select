@@ -396,7 +396,7 @@ a:hover {
   transform: translateY(0);
 }
 .nav-modal__main-container {
-  width: 103.125rem;
+  width: 92.8125rem;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -1270,7 +1270,6 @@ body.third-section-active .header__nav {
 }
 .history__wrapper--content {
   position: relative;
-  padding-bottom: 1.25rem;
 }
 .history__image {
   width: 100%;

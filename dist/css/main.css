@@ -53,8 +53,7 @@
 }
 @font-face {
   font-family: "Sequel";
-  src: url("https://www.mgselect.co.in/etc.clientlibs/mg-select/clientlibs/clientlib-site/resources/fonts/sequel.woff2") format("woff2");
-  font-weight: 400;
+  src: url("../../media/fonts/sequel.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
@@ -67,8 +66,7 @@
 }
 @font-face {
   font-family: "Roboto";
-  src: url("https://www.mgselect.co.in/etc.clientlibs/mg-select/clientlibs/clientlib-site/resources/fonts/roboto.woff2") format("woff2");
-  font-weight: 300 700;
+  src: url("../../media/fonts/roboto.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
@@ -437,7 +435,7 @@ a:hover {
   align-items: center;
   text-decoration: none;
   color: #000000;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 0.625rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -475,7 +473,7 @@ a:hover {
   gap: 1.875rem;
 }
 .nav-modal__menu-item {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 0.875rem;
   color: #999;
   cursor: pointer;
@@ -538,7 +536,7 @@ a:hover {
   transition: background 0.3s ease;
 }
 .nav-modal__car-item .nav-modal__car-price {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 0.8125rem;
   color: #888;
   margin: 0;
@@ -564,7 +562,7 @@ a:hover {
   color: #000000;
 }
 .nav-modal__car-desc {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 0.875rem;
   color: #666;
   line-height: 1.6;
@@ -583,7 +581,7 @@ a:hover {
   padding: 0.875rem 1.25rem;
   text-decoration: none;
   color: #000000;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -608,7 +606,7 @@ a:hover {
   gap: 0.5rem;
   text-decoration: none;
   color: #000000;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 0.6875rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -708,13 +706,13 @@ a:hover {
 }
 .hero__wrapper--content-text {
   color: #ffffff;
-  max-width: 37.5rem;
+  max-width: 43.75rem;
   margin-bottom: 1.25rem;
 }
 .hero__wrapper--content-text-up-heading {
   font-size: 2rem;
   font-weight: 500;
-  font-family: "Inter", sans-serif;
+  font-family: "Sequel";
   margin: 0 0 1.125rem 0;
   line-height: 1.2;
 }
@@ -727,6 +725,7 @@ a:hover {
   padding: 0.75rem 1.25rem;
   min-width: 17.5rem;
   cursor: pointer;
+  font-family: "Sequel";
   transition: background-color 0.25s ease;
 }
 .hero__wrapper--content-text-down:hover {
@@ -849,19 +848,20 @@ a:hover {
   width: 100%;
   height: 100%;
 }
-.showcase__carousel .carousel-inner,
-.showcase__carousel .carousel-item {
+.showcase__carousel-inner, .showcase__carousel-item {
   height: 100%;
 }
-.showcase__carousel .carousel-control-prev,
-.showcase__carousel .carousel-control-next {
+.showcase__carousel-control {
   width: 5rem;
   opacity: 1;
 }
-.showcase__carousel .carousel-control-prev .carousel-control-prev-icon,
-.showcase__carousel .carousel-control-prev .carousel-control-next-icon,
-.showcase__carousel .carousel-control-next .carousel-control-prev-icon,
-.showcase__carousel .carousel-control-next .carousel-control-next-icon {
+.showcase__carousel-control--prev {
+  left: 0;
+}
+.showcase__carousel-control--next {
+  right: 0;
+}
+.showcase__carousel-control-icon {
   width: 3.75rem;
   height: 3.75rem;
   background-color: rgba(255, 255, 255, 0.15);
@@ -1018,7 +1018,7 @@ a:hover {
   align-items: center;
 }
 .welcome__container--top-heading {
-  font-family: "Inter", sans-serif;
+  font-family: "Sequel";
   font-size: 1.125rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -1031,38 +1031,20 @@ a:hover {
   height: auto;
 }
 .welcome__container--mid__wrapper {
-  position: relative;
   width: 100%;
   max-width: 56.25rem;
   text-align: center;
-  min-height: 7.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.welcome__container--mid__wrapper-tagline, .welcome__container--mid__wrapper-paragraph {
-  position: absolute;
-  width: 100%;
-  padding: 0 2.5rem;
-  margin: 0;
-  transition: opacity 0.5s ease;
+  margin: 2.5rem 0;
 }
 .welcome__container--mid__wrapper-tagline {
-  font-family: "Inter", sans-serif;
-  font-size: 3rem;
+  font-family: "Sequel";
+  font-size: 3.4375rem;
   font-weight: 400;
   color: #000000;
-  opacity: 1;
-  z-index: 2;
+  margin: 0;
 }
 .welcome__container--mid__wrapper-paragraph {
-  font-family: "Inter", sans-serif;
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.7;
-  color: #000000;
-  opacity: 0;
-  z-index: 1;
+  display: none;
 }
 .welcome__container--carousel {
   width: 100vw;
@@ -1261,6 +1243,7 @@ body.third-section-active .header__nav {
   margin-bottom: 2.5rem;
 }
 .history__heading--main {
+  margin-top: 1.25rem;
   font-family: "Inter", sans-serif;
   font-size: 0.875rem;
   text-transform: uppercase;
@@ -1282,10 +1265,10 @@ body.third-section-active .header__nav {
 .history__wrapper--heading {
   padding: 0 5rem;
   margin-bottom: 3.75rem;
-  font-family: "Sequel", sans-serif;
+  font-family: "Sequel";
 }
 .history__wrapper--heading-main {
-  font-family: "Inter", sans-serif;
+  font-family: "Sequel";
   font-size: 1.875rem;
   color: #1a1a1a;
   font-weight: 300;
@@ -1320,7 +1303,7 @@ body.third-section-active .header__nav {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 .history__year {
-  font-family: "Sequel", sans-serif;
+  font-family: "Sequel";
   font-size: 0.875rem;
   color: #1a1a1a;
   margin: 0;
@@ -1385,7 +1368,7 @@ body.third-section-active .header__nav {
 }
 .swiper-slide-active .history__year {
   color: #000000;
-  font-size: 3rem;
+  font-size: 1.5rem;
   top: -3.75rem;
   padding-right: calc(0rem / 1px);
   opacity: 1;
@@ -1406,4 +1389,35 @@ body.third-section-active .header__nav {
     padding-top: 1.375rem;
     transform: scale(0.95);
   }
+}
+.swiper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1.875rem;
+}
+
+.history__scale {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 2.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  margin-top: 1.25rem;
+  opacity: 1;
+}
+.history__scale-tick {
+  width: 1px;
+  height: 0.625rem;
+  background-color: #666;
+  opacity: 0.4;
+}
+.history__scale-tick.large {
+  height: 1.875rem;
+  opacity: 1;
+  width: 1px;
+  background-color: #666;
 }

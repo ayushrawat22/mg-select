@@ -212,6 +212,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const historyScale = document.querySelector('.history__scale');
+    if (historyScale) {
+        const total_lines = 80;
+        for (let i = 0; i < total_lines; i++) {
+            const line = document.createElement('div');
+            line.classList.add('history__scale-tick');
+            if (i % 20 === 0) {
+                line.classList.add('large');
+            }
+            historyScale.appendChild(line);
+        }
+    }
 });
 
 

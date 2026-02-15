@@ -18,6 +18,7 @@
     margin-bottom: px_to_rem(40px);
 
     &--main {
+      margin-top: px_to_rem(20px);
       font-family: $font-family-primary;
       font-size: px_to_rem(14px);
       @include uppercase-text;
@@ -45,7 +46,7 @@
       font-family: $font-family-display;
 
       &-main {
-        font-family: $font-family-primary;
+        font-family: $font-family-display;
         font-size: px_to_rem(30px);
         color: $dark-100;
         font-weight: 300;
@@ -154,7 +155,7 @@
 
       .history__year {
         color: $black;
-        font-size: px_to_rem(48px);
+        font-size: px_to_rem(24px);
         top: px_to_rem(-60px);
         padding-right: px_to_rem(0);
         opacity: 1;
@@ -178,5 +179,33 @@
     }
   }
 
+  @include flex-center;
+  padding-bottom: px_to_rem(30px);
+}
 
+.history__scale {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: px_to_rem(40px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 px_to_rem(20px);
+  margin-top: px_to_rem(20px);
+  opacity: 1;
+
+  &-tick {
+    width: 1px;
+    height: px_to_rem(10px);
+    background-color: $grey-600;
+    opacity: 0.4;
+
+    &.large {
+      height: px_to_rem(30px);
+      opacity: 1;
+      width: 1px;
+      background-color: $grey-600;
+    }
+  }
 }

@@ -32,14 +32,14 @@
 
       &-text {
         color: $white;
-        max-width: px_to_rem(600px);
+        max-width: px_to_rem(700px);
         margin-bottom: px_to_rem(20px);
 
         &-up {
           &-heading {
             font-size: px_to_rem(32px);
             font-weight: 500;
-            font-family: $font-family-primary;
+            font-family: $font-family-display;
             margin: 0 0 px_to_rem(18px) 0;
             line-height: 1.2;
           }
@@ -53,6 +53,7 @@
           padding: px_to_rem(12px) px_to_rem(20px);
           min-width: px_to_rem(280px);
           cursor: pointer;
+          font-family: $font-family-display;
           @include transition(background-color, 0.25s);
 
           &:hover {

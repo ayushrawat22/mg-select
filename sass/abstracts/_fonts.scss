@@ -1,16 +1,13 @@
 @font-face {
-  font-family: 'Sequel';
-  src: url('https://www.mgselect.co.in/etc.clientlibs/mg-select/clientlibs/clientlib-site/resources/fonts/sequel.woff2')
-       format('woff2');
-  font-weight: 400;
+  font-family: "Sequel";
+  src: url("../../media/fonts/sequel.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('https://www.mgselect.co.in/etc.clientlibs/mg-select/clientlibs/clientlib-site/resources/fonts/inter.woff2')
-       format('woff2');
+  src: url('https://www.mgselect.co.in/etc.clientlibs/mg-select/clientlibs/clientlib-site/resources/fonts/inter.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -18,9 +15,7 @@
 
 @font-face {
   font-family: 'Roboto';
-  src: url('https://www.mgselect.co.in/etc.clientlibs/mg-select/clientlibs/clientlib-site/resources/fonts/roboto.woff2')
-       format('woff2');
-  font-weight: 300 700;
+  src: url("../../media/fonts/roboto.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
